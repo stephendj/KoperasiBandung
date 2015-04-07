@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
@@ -23,3 +24,14 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+=======
+# KoperasiBandung
+
+## Selamat datang di Website Koperasi Bandung, di mana anda dapat mendaftarkan, maupun membubarkan koperasi anda. Ajukan dan kami akan merespon!
+
+#####Untuk menjalankan aplikasi :
+#####1. Ketikkan "composer create-project [PACKAGE] [DESTINATION PATH] [--FLAGS]" (Tanpa tanda kutip)
+#####   Contoh : composer create-project laravel/laravel=4.2 KoperasiBandung --prefer-dist
+#####2. Pull project dari github ini
+#####3. Aplikasi dapat dijalankan
+>>>>>>> ddbb093f0954f5ef1d97071ab62f3dfa19d0a3eb

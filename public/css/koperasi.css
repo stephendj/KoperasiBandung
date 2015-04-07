@@ -1,0 +1,329 @@
+.profilkoperasi{
+	display: none;
+}
+
+.daftarpertanyaan, .hapuspertanyaan{
+	margin-top:20px;
+	font-family: 'Open Sans', 'sans-serif';
+	-webkit-appearance: none;
+	float: right;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 0.8925em;
+	color: #ffffff;
+	background: #F15F43;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	
+}
+
+.hapuspertanyaan{
+	margin-right: 2%;
+}
+
+.daftarpertanyaan:hover, .hapuspertanyaan:hover{
+	background: #354B77;
+}
+
+
+.formjawaban{
+	display: none;	
+}
+
+.blog_right h2 {
+	margin:0 0 4% 5%;
+	color: #354B77;	
+	text-transform: capitalize;
+}
+
+.blog_right p{
+	margin:0 0 4% 5%;
+	font-size: 140%;
+	text-align: justify;
+	color: #354B77;	
+	text-transform: capitalize;
+}
+
+.pertanyaan-jawaban{
+	width:100%;
+	float:left;
+	/*background: #E5EAF3;*/
+	padding: 0 4%;
+}
+.pertanyaan-jawaban h3{
+	color: #354B77;
+	font-size: 1.8em;
+	font-weight: normal;
+	line-height: 31px;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.pertanyaan-jawaban p {
+	font-size: 140%;
+}
+
+.pertanyaan-form h2{
+	font-size: 26px;	
+	text-transform: uppercase;
+	color: #354B77;
+}
+.pertanyaan-form span{
+	display:block;
+	text-transform: capitalize;
+	font-size: 13px;
+	color: #9499A3;
+	font-weight: normal;
+	margin-bottom: 10px;
+	margin-left: 5%;
+}
+.pertanyaan-form textarea {
+	font-family: 'Open Sans', 'sans-serif';
+	padding: 10px;
+	display: block;
+	width: 99.3333%;
+	background: #ffffff;
+	outline: none;
+	color: #c0c0c0;
+	font-size: 0.8725em;
+	border: 1px solid #ECECEC;
+	-webkit-appearance: none;
+	resize: none;
+	height: 120px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+.pertanyaan-form textarea:focus{
+	border:1px solid #66afe9;
+}
+
+.pertanyaan-form input[type="submit"] {
+	margin-top:20px;
+
+	font-family: 'Open Sans', 'sans-serif';
+	-webkit-appearance: none;
+	float: right;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 0.8925em;
+	color: #ffffff;
+	background: #F15F43;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.pertanyaan-form input[type="submit"]:hover{
+	background: #354B77;
+}
+
+.contact-form select{
+	font-family: 'Open Sans', 'sans-serif';
+	padding: 10px;
+	display: block;
+	width: 49.3333%;
+	background: #ffffff;
+	outline: none;
+	color: #c0c0c0;
+	font-size: 0.9725em;
+	border: 1px solid #ECECEC;
+	/*-webkit-appearance: none;*/
+	resize: none;
+	height: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.contact-form input[type="file"]{
+	font-family: 'Open Sans', 'sans-serif';
+	padding: 10px;
+	display: block;
+	width: 49.3333%;
+	background: #ffffff;
+	outline: none;
+	color: #c0c0c0;
+	font-size: 0.9725em;
+	border: 1px solid #ECECEC;
+	/*-webkit-appearance: none;*/
+	resize: none;
+	height: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.news_letter{
+	margin: 4% 0 20%;
+}
+.news_letter form input[type="text"]{
+	margin-left: 5%;
+}
+
+.audit img{
+	height: auto;
+	width: 100%;
+}
+
+select.audit-form{
+	width: 99.3333% !important;
+}
+
+input.audit-form{
+	width: 99.3333% !important;
+}
+
+.daftar-audit{
+	width:70%;
+	float:left;
+	/*background: #E5EAF3;*/
+	padding: 0 2%;
+}
+.daftar-audit h3{
+	color: #354B77;
+	font-size: 1.8em;
+	font-weight: normal;
+	line-height: 31px;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.daftar-audit p {
+	font-size: 140%;
+}
+
+.tombol-audit{
+	margin-top:5px;
+	margin-left: 3%;
+	font-family: 'Open Sans', 'sans-serif';
+	-webkit-appearance: none;
+	float: right;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 0.8925em;
+	color: #ffffff;
+	background: #F15F43;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.tombol-audit:hover{
+	background: #354B77;
+}
+
+.buat-koperasi{
+	margin-top:5px;
+	margin-bottom: 10px;
+	font-family: 'Open Sans', 'sans-serif';
+	-webkit-appearance: none;
+	float: left;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: block;
+	padding: 12px 30px;
+	font-size: 0.8925em;
+	color: #ffffff;
+	background: #F15F43;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.buat-koperasi:hover{
+	background: #354B77;
+}
+
+
+h5.paneltabajuan{
+	color: #354B77;
+	font-weight: bold;
+}
+
+.tombol-ajuan{
+	margin-left: 1%;
+}
+
+.margintop{
+	margin-top: 20px;
+}
+
+.login-box{
+	position: absolute;
+	background: #fff;
+	padding: 3%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	display: block;
+	width: 450px;
+	height: 350px;
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+}
+
+.login-back input[type="submit"]{
+	float: none;
+	display: block;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.login-back input[type="submit"]:hover{
+	background: #354B77;
+}
+
+
+.login-back{
+	position: relative;
+	display: block;
+	background: #354B77;
+	width: 100vw;
+	height: 100vh;
+}
+@media only screen and (max-width: 768px) {
+	.pertanyaan-form input[type="submit"] {
+		margin: 15px 0;
+	}
+}

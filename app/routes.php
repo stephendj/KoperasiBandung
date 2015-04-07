@@ -11,11 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function()
-{
-	return View::make('hello');
-=======
 Route::group(array('prefix' => '/'), function()
 {
 	Route::get('/', function() {
@@ -54,5 +49,4 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::get('audit', function() {
     	return View::make('cek-audit');
     });
->>>>>>> ddbb093f0954f5ef1d97071ab62f3dfa19d0a3eb
 });

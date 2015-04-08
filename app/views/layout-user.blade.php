@@ -43,52 +43,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="" class="img-responsive"/> </a>
+		      <a class="navbar-brand" href="index.html"><img src="images/koperasibandunglogo.png" alt="" class="img-responsive"/> </a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
-		        <li><a href="index.html">home</a></li>
-		        <li><a href="feature.html">features</a></li>
-		        <li class="active"><a href="blog.html">blog</a></li>
-		        <li><a href="about.html">about</a></li>
-		        <li><a href="contact.html">contact</a></li>
-		      </ul>
-		      <form class="navbar-form navbar-right" role="search">
-		        <div class="form-group my_search">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Search</button>
-		      </form>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-		</div>
-		<ol class="breadcrumb">
-		  <li><a href="index.html">Home</a></li>
-		  <li class="active">Blog</li>
-		</ol>
-	</div>
-</div>
-<div class="main"><!-- start main -->
-<div class="koperasi-header">
-	<div class="container">
-		<div class="row">
-			<div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <!--<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="" class="img-responsive"/> </a>-->
-		    </div>
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="menu nav navbar-nav ">
-		      	@if(Request::is('/'))
+		        @if(Request::is('/'))
 		        	<li class="active"><a href="{{URL::to('/')}}">Daftar Koperasi</a></li>
 		        @else
 		      		<li><a href="{{URL::to('/')}}">Daftar Koperasi</a></li>
@@ -116,14 +76,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
+		</nav>
 		</div>
+		<ol class="breadcrumb">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">
+		  		@if(Request::is('/'))
+		        	Daftar Koperasi
+		      	@endif
+		        @if(Request::is('tanya'))
+		        	Pertanyaan
+		        @endif
+		        @if(Request::is('ajukan-bentuk'))
+		        	Pengajuan Pembentukan>
+		        @endif
+		        @if(Request::is('ajukan-bubar'))
+		        	Pengajuan Pembubaran
+		        @endif
+		        @if(Request::is('audit'))
+		        	Unggah Audit
+		        @endif
+		  </li>
+		</ol>
 	</div>
 </div>
+<div class="main"><!-- start main -->
 
 @yield('content', 'default content')
 
 <div class="footer_bg"><!-- start footre -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row  footer">
 			<div class="col-md-3 span1_of_4">
 				<h4>about us</h4>
@@ -166,7 +148,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="clearfix"></div>
 		</div>
-	</div>
+	</div> -->
 </div>
 <div class="footer_btm"><!-- start footer_btm -->
 	<div class="container">

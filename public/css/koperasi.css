@@ -322,6 +322,11 @@ h5.paneltabajuan{
 	width: 100vw;
 	height: 100vh;
 }
+
+.navbar-nav{
+	float: right;
+	margin-left: 0%;
+}
 @media only screen and (max-width: 768px) {
 	.pertanyaan-form input[type="submit"] {
 		margin: 15px 0;

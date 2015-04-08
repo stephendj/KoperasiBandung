@@ -19,10 +19,12 @@ class PertanyaanController extends BaseController {
 		return Redirect::back()->with('message','Pertanyaan telah disimpan');;
 	}
 
-	public function addJawaban($id1) //edit Pertanyaan
-	{
-		
-	}
+	public function addJawaban ($_id){ //edit Pertanyaan
+        $UpdateDetails = Pertanyaan::where('id', '=',  $_id)->firstOrFail();
+        $UpdateDetails->id_staff = Input::get('id_staff');
+        $UpdateDetails->jawaban = Input::get('userMsg');
+        $UpdateDetails->save();
+    }
 
 	public function deletePertanyaan($id)
 	{

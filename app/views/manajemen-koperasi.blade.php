@@ -65,9 +65,11 @@
 							<div class="daftar-audit">
 								 <h3>{{$kop->nama}}</h3>
 							</div>
-			 				<button class="tombol-audit">
-								Hapus
-							</button>
+							<a href="{{URL::to('admin/deleteKoperasi/'.$kop->id_koperasi)}}" >
+				 				<button class="tombol-audit">
+									Hapus
+								</button>
+							</a>
 							<button class="tombol-audit cek-audit">
 								Lihat Data
 							</button>

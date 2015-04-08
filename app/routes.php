@@ -44,6 +44,7 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
     Route::post('addKoperasi', 'KoperasiController@addKoperasi');
     Route::post('editKoperasi', 'KoperasiController@editKoperasi');
+    Route::get('deleteKoperasi/{id}', 'KoperasiController@deleteKoperasi');
     
     Route::get('jawab', function() {
     	return View::make('jawab-pertanyaan');

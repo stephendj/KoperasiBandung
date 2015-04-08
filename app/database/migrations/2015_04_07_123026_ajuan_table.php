@@ -17,7 +17,7 @@ class AjuanTable extends Migration {
 	    {
 	        $table->increments('id_ajuan');
 	        $table->unsignedInteger('id_staff');
-	        $table->string('Nama Koperasi');
+	        $table->string('nama_koperasi');
 	        $table->string('jenis_ajuan');
 	        $table->string('status');
 	        $table->string('id_pengaju');

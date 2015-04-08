@@ -40,7 +40,7 @@ class KoperasiTableSeeder extends Seeder
         ));
         Koperasi::create(array(
             'id_koperasi' => NULL,
-            'nama' => 'Koperasi Sumber Jaya',
+            'nama' => 'Koperasi Jaya Terus',
             'jenis_koperasi' => 'Simpan Pinjam',
             'tgl_pembuatan' => '2015-03-28 10:23:22',
             'id_pendiri' => '99232212057',

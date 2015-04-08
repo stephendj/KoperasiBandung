@@ -15,6 +15,7 @@ class Koperasi extends Eloquent implements UserInterface, RemindableInterface{
 	 * @var string
 	 */
 	protected $table = 'koperasi';
+	protected $primaryKey = "id_koperasi";
 	protected $fillable = ['id_pendiri','nama','jenis_koperasi','tgl_pembuatan','alamat','no_telepon', 'deskripsi', 'penilaian'];
 	public $timestamps = false;
 
@@ -33,6 +34,20 @@ class Koperasi extends Eloquent implements UserInterface, RemindableInterface{
 											'no_telepon' => $no_telepon,
 											'deskripsi' => $deskripsi,
 											'penilaian' => "-" ));
-		
+
 	}
+
+	public static function editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi)
+	{
+		$koperasi = Koperasi::where('id_koperasi', $id)->first();
+        $koperasi->nama = $nama;
+        $koperasi->jenis_koperasi = $jenis;
+        $koperasi->alamat = $alamat;
+        $koperasi->no_telepon = $no_telepon;
+        $koperasi->deskripsi = $deskripsi;
+        $koperasi->save();
+	}
+
+
+
 }

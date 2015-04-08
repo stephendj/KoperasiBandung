@@ -37,14 +37,12 @@ Route::group(array('prefix' => 'admin'), function() {
     	return Redirect::to('admin/ajuan');
     });
 
-    Route::get('ajuan', function() {
-    	return View::make('manajemen-ajuan');
-    });
-    Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
-    Route::post('addKoperasi', 'KoperasiController@addKoperasi');
-    
     Route::get('ajuan', array('uses' => 'AjuanController@showAjuan'));
     Route::post('ajuan/edit/{id}', array('uses' => 'AjuanController@changeStatus'));
+
+    Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
+    Route::post('addKoperasi', 'KoperasiController@addKoperasi');
+    Route::post('editKoperasi', 'KoperasiController@editKoperasi');
     
     Route::get('jawab', function() {
     	return View::make('jawab-pertanyaan');

@@ -77,15 +77,16 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Ubah Data Koperasi</h2>
-										    <form method="post" action="contact-post.html">
+										    <form method="post" action="editKoperasi">
+											    <input type="hidden" name="id" value="{{$kop->id_koperasi}}">
 										    	<div>
 											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->nama}}"></span>
+											    	<span><input type="username" class="form-control" name="nama" value="{{$kop->nama}}"></span>
 											    </div>
 										    	<div>
 											    	<span>Jenis Koperasi</span>
 											    	<span>
-											    		<select class="audit-form">
+											    		<select class="audit-form" name="jenis_koperasi">
 											    			@if($kop->jenis_koperasi === "Produksi")
 											    				<option value="Produksi" selected>Produksi</option>
 											    				<option value="Konsumsi">Konsumsi</option>
@@ -113,15 +114,15 @@
 											    </div>
 											    <div>
 											    	<span>Alamat</span>
-											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->alamat}}"></span>
+											    	<span><input type="username" class="form-control" name="alamat" value="{{$kop->alamat}}"></span>
 											    </div>
 											    <div>
 											    	<span>Nomor Telepon</span>
-											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->no_telepon}}"></span>
+											    	<span><input type="username" class="form-control" name="no_telepon" value="{{$kop->no_telepon}}"></span>
 											    </div>
 											    <div>
 											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->deskripsi}}"></span>
+											    	<span><input type="username" class="form-control" name="deskripsi" value="{{$kop->deskripsi}}"></span>
 											    </div>
 											    
 											    <div>

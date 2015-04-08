@@ -824,15 +824,3 @@ body {
     color: red;
 }
 
-#alert_success {
-    -moz-border-radius: 5px/5px;
-    -webkit-border-radius: 5px 5px;
-    border-radius: 5px/5px;
-    width:520px;
-    height:20px;
-    margin-left: 100px;
-    font-size: 20px;
-    background-color: #030;
-    color: #000;
-}
-

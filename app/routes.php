@@ -19,9 +19,12 @@ Route::group(array('prefix' => '/'), function()
     Route::get('tanya', function() {
     	return View::make('FAQ');
     });
-    Route::get('ajukan-bentuk', function() {
-    	return View::make('pengajuan-pembentukan');
-    });
+    
+    Route::get('ajukan-bentuk', array('uses' => 'AjuanController@showAjuanBentuk'));
+    Route::get('ajukan-bubar', array('uses' => 'AjuanController@showAjuanBubar'));
+    Route::post('ajuanbentuk', array('uses' => 'AjuanController@addAjuanBentuk'));
+    Route::post('ajuanbubar', array('uses' => 'AjuanController@addAjuanBubar'));
+
     Route::get('ajukan-bubar', function() {
     	return View::make('pengajuan-pembubaran');
     });

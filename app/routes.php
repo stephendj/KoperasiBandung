@@ -13,9 +13,7 @@
 
 Route::group(array('prefix' => '/'), function()
 {
-	Route::get('/', function() {
-        return View::make('daftar-koperasi');
-    });
+	Route::get('/', 'KoperasiController@showKoperasi');
     Route::get('tanya', function() {
     	return View::make('FAQ');
     });
@@ -41,9 +39,8 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::get('ajuan', function() {
     	return View::make('manajemen-ajuan');
     });
-    Route::get('koperasi', function() {
-    	return View::make('manajemen-koperasi');
-    });
+    Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
+    
     Route::get('jawab', function() {
     	return View::make('jawab-pertanyaan');
     });

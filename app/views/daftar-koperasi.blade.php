@@ -6,32 +6,29 @@
 	<div class="blog"><!-- start blog -->
 		<div class="row">
 			<div class="col-md-8 blog_left">
+				@forelse($koperasi as $kop)
 					<div class="row grids_btm top">
 						<div class="grid_list">
 							<div class="grid_1_of_1 daftarkoperasi">
-								  	<h3>Koperasi A </h3>
-									<p>Koperasi something </p>
-									<div class="profilkoperasi"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
+								  	<h3>{{$kop->nama}}</h3>
+									<p>{{$kop->jenis_koperasi}}</p>
+									<div class="profilkoperasi">
+										<p>{{$kop->alamat}}</p>
+										<p>Nomor Telepon: {{$kop->no_telepon}}</p>
+										<p>{{$kop->deskripsi}}</p>
+									</div> 	   
 				 			</div>
 				 			<div class="images_1_of_1">
-								<p>10</p>
+								<p>{{$kop->penilaian}}</p>
 							</div>
 				 			 <div class="clearfix"></div>
 						</div>
 					</div>
+				@empty
 					<div class="row grids_btm top">
-						<div class="grid_list">
-							<div class="grid_1_of_1 daftarkoperasi">
-								  	<h3>Koperasi B </h3>
-									<p>Koperasi something </p>
-									<div class="profilkoperasi"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
-				 			</div>
-				 			<div class="images_1_of_1">
-								<p>8.7</p>
-							</div>
-				 			 <div class="clearfix"></div>
-						</div>
+						Tidak ada koperasi
 					</div>
+				@endforelse
 			</div>
 			<div class="col-md-4 blog_right">
 				<h2>Cari Koperasi</h2>

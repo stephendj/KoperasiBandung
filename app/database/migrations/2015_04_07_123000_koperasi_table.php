@@ -16,12 +16,14 @@ class KoperasiTable extends Migration {
 	    Schema::create('Koperasi', function($table)
 	    {
 	        $table->increments('id_koperasi');
-	        $table->string('nama');
+	        $table->string('nama')->unique;
+	        $table->string('jenis_koperasi');
 	        $table->dateTime('tgl_pembuatan');
 	        $table->string('id_pendiri');
 	        $table->string('alamat');
 	        $table->text('deskripsi');
 	        $table->string('no_telepon');
+	        $table->string('penilaian');
 	    });
 	}
 

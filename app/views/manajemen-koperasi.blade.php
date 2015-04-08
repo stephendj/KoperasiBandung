@@ -17,25 +17,37 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Tambahkan Koperasi</h2>
-										    <form method="post" action="contact-post.html">
+										    <form method="post" action="<?php echo URL::to('admin/ajuan');?>">
+										    	<div>
+											    	<span>ID Pendiri</span>
+											    	<span><input type="username" class="form-control" name="id_pendiri"></span>
+											    </div>
 										    	<div>
 											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
+											    	<span><input type="username" class="form-control" name="nama"></span>
 											    </div>
 										    	<div>
 											    	<span>Jenis Koperasi</span>
 											    	<span>
-											    		<select class="audit-form">
-														  <option value="volvo">Biasa</option>
-														  <option value="saab">Simpan Pinjam</option>
-														  <option value="mercedes">Blabla</option>
-														  <option value="audi">Lain Lain</option>
+											    		<select class="audit-form" name="jenis_koperasi">
+															<option value="Produksi">Produksi</option>
+										    				<option value="Konsumsi">Konsumsi</option>
+															<option value="Simpan Pinjam">Simpan Pinjam</option>
+															<option value="Dagang">Dagang</option>
 														</select>
 											    	</span>
 											    </div>
 											    <div>
+											    	<span>Alamat</span>
+											    	<span><input type="username" class="form-control" name="alamat"></span>
+											    </div>
+											    <div>
+											    	<span>Nomor Telepon</span>
+											    	<span><input type="username" class="form-control" name="no_telepon"></span>
+											    </div>
+											    <div>
 											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
+											    	<span><input type="username" class="form-control" name="deskripsi"></span>
 											    </div>
 											   <div>
 											   		<span><input type="submit" value="Tambah"></span>
@@ -47,12 +59,13 @@
 								</div> <!-- end contact --> 
 							</div> 	
 					</div>
+					@forelse ($koperasi as $kop)
 					<div class="row grids_btm top">
 						<div class="grid_list">
 							<div class="daftar-audit">
-								 <h3>Koperasi A </h3>
+								 <h3>{{$kop->nama}}</h3>
 							</div>
-			 				<button class="tombol-audit">
+			 				<button class="tombol-audit" >
 								Hapus
 							</button>
 							<button class="tombol-audit cek-audit">
@@ -67,26 +80,53 @@
 										    <form method="post" action="contact-post.html">
 										    	<div>
 											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
+											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->nama}}"></span>
 											    </div>
 										    	<div>
 											    	<span>Jenis Koperasi</span>
 											    	<span>
 											    		<select class="audit-form">
-														  <option value="volvo">Biasa</option>
-														  <option value="saab">Simpan Pinjam</option>
-														  <option value="mercedes">Blabla</option>
-														  <option value="audi">Lain Lain</option>
+											    			@if($kop->jenis_koperasi === "Produksi")
+											    				<option value="Produksi" selected>Produksi</option>
+											    				<option value="Konsumsi">Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															@elseif($kop->jenis_koperasi === "Konsumsi")
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" selected>Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															@elseif($kop->jenis_koperasi === "Simpan Pinjam")
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" >Konsumsi</option>
+																<option value="Simpan Pinjam" selected>Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															@else
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" >Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang" selected>Dagang</option>
+											    			@endif
+														  
 														</select>
 											    	</span>
 											    </div>
 											    <div>
-											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
+											    	<span>Alamat</span>
+											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->alamat}}"></span>
 											    </div>
-											   <div>
+											    <div>
+											    	<span>Nomor Telepon</span>
+											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->no_telepon}}"></span>
+											    </div>
+											    <div>
+											    	<span>Deskripsi Koperasi</span>
+											    	<span><input type="username" class="form-control" id="userName" value="{{$kop->deskripsi}}"></span>
+											    </div>
+											    
+											    <div>
 											   		<span><input type="submit" value="Ubah Data"></span>
-											  </div>
+											    </div>
 										    </form>
 									    </div>
 					  				</div>		
@@ -96,55 +136,8 @@
 				 			 <div class="clearfix"></div>
 						</div>
 					</div>
-					<div class="row grids_btm top">
-						<div class="grid_list">
-							<div class="daftar-audit">
-								 <h3>Koperasi B </h3>
-							</div>
-			 				<button class="tombol-audit">
-								Hapus
-							</button>
-							<button class="tombol-audit cek-audit">
-								Lihat Data
-							</button>
-							<div class="clearfix"></div>
-							<div class="formjawaban">
-								<div class="row contact"><!-- start contact -->		
-									<div class="col-md-12">
-									  <div class="contact-form">
-									  	<h2>Ubah Data Koperasi</h2>
-										    <form method="post" action="contact-post.html">
-										    	<div>
-											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
-											    </div>
-										    	<div>
-											    	<span>Jenis Koperasi</span>
-											    	<span>
-											    		<select class="audit-form">
-														  <option value="volvo">Biasa</option>
-														  <option value="saab">Simpan Pinjam</option>
-														  <option value="mercedes">Blabla</option>
-														  <option value="audi">Lain Lain</option>
-														</select>
-											    	</span>
-											    </div>
-											    <div>
-											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" id="userName"></span>
-											    </div>
-											   <div>
-											   		<span><input type="submit" value="Ubah Data"></span>
-											  </div>
-										    </form>
-									    </div>
-					  				</div>		
-					  				<div class="clearfix"></div>		
-								</div> <!-- end contact --> 
-							</div> 	   
-				 			 <div class="clearfix"></div>
-						</div>
-					</div>
+					@empty
+					@endforelse
 				</div>
 			</div>
 		</div>

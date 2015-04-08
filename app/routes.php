@@ -40,6 +40,7 @@ Route::group(array('prefix' => 'admin'), function() {
     	return View::make('manajemen-ajuan');
     });
     Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
+    Route::post('addKoperasi', 'KoperasiController@addKoperasi');
     
     Route::get('jawab', function() {
     	return View::make('jawab-pertanyaan');

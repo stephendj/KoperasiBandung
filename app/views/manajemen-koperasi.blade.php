@@ -17,7 +17,7 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Tambahkan Koperasi</h2>
-										    <form method="post" action="<?php echo URL::to('admin/ajuan');?>">
+										    <form method="post" action="addKoperasi">
 										    	<div>
 											    	<span>ID Pendiri</span>
 											    	<span><input type="username" class="form-control" name="id_pendiri"></span>
@@ -65,7 +65,7 @@
 							<div class="daftar-audit">
 								 <h3>{{$kop->nama}}</h3>
 							</div>
-			 				<button class="tombol-audit" >
+			 				<button class="tombol-audit">
 								Hapus
 							</button>
 							<button class="tombol-audit cek-audit">

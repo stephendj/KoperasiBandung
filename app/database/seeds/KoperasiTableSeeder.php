@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 class KoperasiTableSeeder extends Seeder
 {

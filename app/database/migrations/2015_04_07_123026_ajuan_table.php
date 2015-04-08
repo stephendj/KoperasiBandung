@@ -16,9 +16,10 @@ class AjuanTable extends Migration {
 	    Schema::create('Ajuan', function($table)
 	    {
 	        $table->increments('id_ajuan');
-	        $table->unsignedInteger('id_staff');
+	        $table->unsignedInteger('id_staff')->nullable();
 	        $table->string('nama_koperasi');
 	        $table->string('jenis_ajuan');
+	        $table->string('jenis_koperasi');
 	        $table->string('status');
 	        $table->string('id_pengaju');
 	        $table->string('email');

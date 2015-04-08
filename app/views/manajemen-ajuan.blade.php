@@ -16,180 +16,174 @@
 					      <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						    <div class="row grids_btm top">
 								<div class="grid_list">
-								<div class="daftar-audit">
-									 <h3>Ajuan Pembentukan Koperasi A </h3>
-									<p>Status Ajuan</p>
-								</div>
-					 				<button class="tombol-audit cek-audit">
-										Lihat
-									</button>
-									<a href="#" download="laporankoperasi">
-										<button class="tombol-audit">
-											Unduh Dokumen Ajuan
-										</button>
-									</a>
-									<div class="clearfix"></div>	
-									<div class="formjawaban">
-										<div class="row contact"><!-- start contact -->		
-											<div class="col-md-12">
-											  <div class="contact-form">
-											  	<h2>Isi Ajuan</h2>
-												    <form method="post" action="contact-post.html">
-												    	<div>
-													    	<span>Nomor Kartu Tanda Penduduk</span>
-													    	<span><input type="username" class="form-control" id="userName"></span>
-													    </div>
-													    <div>
-													    	<span>e-mail</span>
-													    	<span><input type="email" class="form-control" id="inputEmail3"></span>
-													    </div>
-													    <div>
-													    	<span>Jenis Koperasi</span>
-													    	<span>
-													    		<select>
-																  <option value="volvo">Biasa</option>
-																  <option value="saab">Simpan Pinjam</option>
-																  <option value="mercedes">Blabla</option>
-																  <option value="audi">Lain Lain</option>
-																</select>
-													    	</span>
-													    </div>
-														   <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Proses Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Tolak Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Terima Ajuan"></span>
-														  </div>
-												    </form>
-											    </div>
-							  				</div>		
-							  				<div class="clearfix"></div>		
-										</div> <!-- end contact --> 
-									</div> 	   
-						 			 <div class="clearfix"></div>
+									@if(!is_null($ajuanbentuk))
+					      			  @foreach($ajuanbentuk as $ajuan)
+										<div class="daftar-audit">
+										    <h3>{{$ajuan->nama_koperasi}}</h3>
+										    @if($ajuan->status === 'Sedang Diproses')
+												<p>{{$ajuan->status}}</p>
+											@elseif($ajuan->status === 'Diterima')
+												<p><font color="green">{{$ajuan->status}}</font></p>
+											@elseif($ajuan->status === 'Ditolak')
+												<p><font color="red">{{$ajuan->status}}</font></p>
+											@endif
+										</div>
+						 				<button class="tombol-audit cek-audit">Lihat</button>
+										<a href="#" download="laporankoperasi">
+											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
+										</a>
+										<div class="clearfix"></div>	
+											<div class="formjawaban">
+												<div class="row contact"><!-- start contact -->		
+													<div class="col-md-12">
+													  <div class="contact-form">
+													  	<h2>Data Ajuan</h2>
+														    <form method="post" action="ajuan/edit/{{$ajuan->id_ajuan}}">
+														    	<div>
+															    	<span>Nomor Kartu Tanda Penduduk</span>
+															    	<span><input type="text" class="form-control" id="id_pengaju" value="{{$ajuan->id_pengaju}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Email</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->email}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Jenis Koperasi</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->jenis_koperasi}}" readonly></span>
+															    </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>
+																  </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Terima Ajuan"></span>
+																  </div>
+														    </form>
+													  </div>
+									  				</div>		
+									  				<div class="clearfix"></div>		
+												</div> <!-- end contact --> 
+											</div> 	   
+								 			<div class="clearfix"></div>
+								 	  @endforeach
+									@else
+									  <center><br><h3>Tidak Ada Ajuan</h3></center>
+									@endif
 								</div>
 							</div>
-					      </div>
+						  </div>
 					      <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 					         <div class="row grids_btm top">
 								<div class="grid_list">
-								<div class="daftar-audit">
-									 <h3>Ajuan Pembentukan Koperasi Simpan Pinjam A </h3>
-									<p>Status Ajuan</p>
-								</div>
-					 				<button class="tombol-audit cek-audit">
-										Lihat
-									</button>
-									<a href="#" download="laporankoperasi">
-										<button class="tombol-audit">
-											Unduh Dokumen Ajuan
-										</button>
-									</a>
-									<div class="clearfix"></div>	
-									<div class="formjawaban">
-										<div class="row contact"><!-- start contact -->		
-											<div class="col-md-12">
-											  <div class="contact-form">
-											  	<h2>Isi Ajuan</h2>
-												    <form method="post" action="contact-post.html">
-												    	<div>
-													    	<span>Nomor Kartu Tanda Penduduk</span>
-													    	<span><input type="username" class="form-control" id="userName"></span>
-													    </div>
-													    <div>
-													    	<span>e-mail</span>
-													    	<span><input type="email" class="form-control" id="inputEmail3"></span>
-													    </div>
-													    <div>
-													    	<span>Jenis Koperasi</span>
-													    	<span>
-													    		<select>
-																  <option value="volvo">Biasa</option>
-																  <option value="saab">Simpan Pinjam</option>
-																  <option value="mercedes">Blabla</option>
-																  <option value="audi">Lain Lain</option>
-																</select>
-													    	</span>
-													    </div>
-														   <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Proses Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Tolak Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Terima Ajuan"></span>
-														  </div>
-												    </form>
-											    </div>
-							  				</div>		
-							  				<div class="clearfix"></div>		
-										</div> <!-- end contact --> 
-									</div> 	   
-						 			 <div class="clearfix"></div>
+								@if(!is_null($ajuansimpanpinjam))
+					      			  @foreach($ajuansimpanpinjam as $ajuan)
+										<div class="daftar-audit">
+										    <h3>{{$ajuan->nama_koperasi}}</h3>
+										    @if($ajuan->status === 'Sedang Diproses')
+												<p>{{$ajuan->status}}</p>
+											@elseif($ajuan->status === 'Diterima')
+												<p><font color="green">{{$ajuan->status}}</font></p>
+											@elseif($ajuan->status === 'Ditolak')
+												<p><font color="red">{{$ajuan->status}}</font></p>
+											@endif
+										</div>
+						 				<button class="tombol-audit cek-audit">Lihat</button>
+										<a href="#" download="laporankoperasi">
+											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
+										</a>
+										<div class="clearfix"></div>	
+											<div class="formjawaban">
+												<div class="row contact"><!-- start contact -->		
+													<div class="col-md-12">
+													  <div class="contact-form">
+													  	<h2>Data Ajuan</h2>
+														    <form method="post" action="ajuan/edit/{{$ajuan->id_ajuan}}">
+														    	<div>
+															    	<span>Nomor Kartu Tanda Penduduk</span>
+															    	<span><input type="text" class="form-control" id="id_pengaju" value="{{$ajuan->id_pengaju}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Email</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->email}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Jenis Koperasi</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->jenis_koperasi}}" readonly></span>
+															    </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>
+																  </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Terima Ajuan"></span>
+																  </div>
+														    </form>
+													  </div>
+									  				</div>		
+									  				<div class="clearfix"></div>		
+												</div> <!-- end contact --> 
+											</div> 	   
+								 			<div class="clearfix"></div>
+								 	  @endforeach
+									@else
+									  <center><br><h3>Tidak Ada Ajuan</h3></center>
+									@endif
 								</div>
 							</div>
 					      </div>
 					      <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
 					         <div class="row grids_btm top">
 								<div class="grid_list">
-								<div class="daftar-audit">
-									 <h3>Ajuan Pembubaran Koperasi A </h3>
-									<p>Status Ajuan</p>
-								</div>
-					 				<button class="tombol-audit cek-audit">
-										Lihat
-									</button>
-									<a href="#" download="laporankoperasi">
-										<button class="tombol-audit">
-											Unduh Dokumen Ajuan
-										</button>
-									</a>
-									<div class="clearfix"></div>	
-									<div class="formjawaban">
-										<div class="row contact"><!-- start contact -->		
-											<div class="col-md-12">
-											  <div class="contact-form">
-											  	<h2>Isi Ajuan</h2>
-												    <form method="post" action="contact-post.html">
-												    	<div>
-													    	<span>Nomor Kartu Tanda Penduduk</span>
-													    	<span><input type="username" class="form-control" id="userName"></span>
-													    </div>
-													    <div>
-													    	<span>e-mail</span>
-													    	<span><input type="email" class="form-control" id="inputEmail3"></span>
-													    </div>
-													    <div>
-													    	<span>Jenis Koperasi</span>
-													    	<span>
-													    		<select>
-																  <option value="volvo">Biasa</option>
-																  <option value="saab">Simpan Pinjam</option>
-																  <option value="mercedes">Blabla</option>
-																  <option value="audi">Lain Lain</option>
-																</select>
-													    	</span>
-													    </div>
-														   <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Proses Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Tolak Ajuan"></span>
-														  </div>
-														  <div>
-														   		<span><input class="tombol-ajuan" type="submit" value="Terima Ajuan"></span>
-														  </div>
-												    </form>
-											    </div>
-							  				</div>		
-							  				<div class="clearfix"></div>		
-										</div> <!-- end contact --> 
-									</div> 	   
-						 			 <div class="clearfix"></div>
+								@if(!is_null($ajuanbubar))
+					      			  @foreach($ajuanbubar as $ajuan)
+										<div class="daftar-audit">
+										    <h3>{{$ajuan->nama_koperasi}}</h3>
+										    @if($ajuan->status === 'Sedang Diproses')
+												<p>{{$ajuan->status}}</p>
+											@elseif($ajuan->status === 'Diterima')
+												<p><font color="green">{{$ajuan->status}}</font></p>
+											@elseif($ajuan->status === 'Ditolak')
+												<p><font color="red">{{$ajuan->status}}</font></p>
+											@endif
+										</div>
+						 				<button class="tombol-audit cek-audit">Lihat</button>
+										<a href="#" download="laporankoperasi">
+											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
+										</a>
+										<div class="clearfix"></div>	
+											<div class="formjawaban">
+												<div class="row contact"><!-- start contact -->		
+													<div class="col-md-12">
+													  <div class="contact-form">
+													  	<h2>Data Ajuan</h2>
+														    <form method="post" action="ajuan/edit/{{$ajuan->id_ajuan}}">
+														    	<div>
+															    	<span>Nomor Kartu Tanda Penduduk</span>
+															    	<span><input type="text" class="form-control" id="id_pengaju" value="{{$ajuan->id_pengaju}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Email</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->email}}" readonly></span>
+															    </div>
+															    <div>
+															    	<span>Jenis Koperasi</span>
+															    	<span><input type="text" class="form-control" id="email" value="{{$ajuan->jenis_koperasi}}" readonly></span>
+															    </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>
+																  </div>
+																  <div>
+																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Terima Ajuan"></span>
+																  </div>
+														    </form>
+													  </div>
+									  				</div>		
+									  				<div class="clearfix"></div>		
+												</div> <!-- end contact --> 
+											</div> 	   
+								 			<div class="clearfix"></div>
+								 	  @endforeach
+									@else
+									  <center><br><h3>Tidak Ada Ajuan</h3></center>
+									@endif
 								</div>
 							</div>
 					      </div> 

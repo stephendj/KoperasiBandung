@@ -38,9 +38,8 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::post('/', function() {
     	return Redirect::to('admin/ajuan');
     });
-    Route::get('ajuan', function() {
-    	return View::make('manajemen-ajuan');
-    });
+    Route::get('ajuan', array('uses' => 'AjuanController@showAjuan'));
+    Route::post('ajuan/edit/{id}', array('uses' => 'AjuanController@changeStatus'));
     Route::get('koperasi', function() {
     	return View::make('manajemen-koperasi');
     });

@@ -48,6 +48,13 @@ class Koperasi extends Eloquent implements UserInterface, RemindableInterface{
         $koperasi->save();
 	}
 
+	public static function deleteKoperasi($id)
+	{
+		$koperasi=Koperasi::where('id_koperasi', $id)->first();
+        $koperasi->delete();
+	}
+
+
 
 
 }

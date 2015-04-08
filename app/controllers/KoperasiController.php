@@ -41,4 +41,10 @@ class KoperasiController extends BaseController {
 		return Redirect::to('admin/koperasi');
 	}
 
+	public function deleteKoperasi($id)
+	{
+		Koperasi::deleteKoperasi($id);
+		return Redirect::to('admin/koperasi');
+	}
+
 }

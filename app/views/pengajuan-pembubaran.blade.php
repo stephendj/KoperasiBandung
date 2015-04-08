@@ -47,22 +47,11 @@
 						    	</span>
 						    </div>
 						    <div>
-						    	<span>Jenis Koperasi</span>
-						    	<span>
-						    		<select name="jenis_koperasi">
-									  <option value="Biasa">Biasa</option>
-									  <option value="Simpan Pinjam">Simpan Pinjam</option>
-									  <option value="Dagang">Dagang</option>
-									  <option value="Lain-Lain">Lain-Lain</option>
-									</select>
-						    	</span>
-						    </div>
-						    <div>
 						     	<span>Upload dokumen .zip/.rar</span>
 						    	<span><input type="file" name="file" accept=".zip/*, .rar/*">{{ "<div id=\"alert\">".$errors->first('file')."</div>" }}</span>
 						    </div>
 						   <div>
-						   		<span><input type="submit" value="buat koperasi"></span>
+						   		<span><input type="submit" value="bubarkan koperasi"></span>
 						  </div>
 					    {{ Form::close() }}
 				    </div>

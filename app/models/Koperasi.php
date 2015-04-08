@@ -35,4 +35,11 @@ class Koperasi extends Eloquent implements UserInterface, RemindableInterface{
 											'penilaian' => "-" ));
 		
 	}
+
+	public static function getJenisByNama($nama_koperasi)
+	{
+		$koperasi = Koperasi::where('nama', $nama_koperasi)->first();
+
+		return $koperasi->jenis_koperasi;
+	}
 }

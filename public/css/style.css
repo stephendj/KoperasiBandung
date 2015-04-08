@@ -819,4 +819,8 @@ body {
 	}
 }
 
+#alert {
+    font-size:smaller;
+    color: red;
+}
 

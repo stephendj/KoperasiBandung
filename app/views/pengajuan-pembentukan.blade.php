@@ -21,34 +21,44 @@
 				<div class="col-md-8">
 				  <div class="contact-form">
 				  	<h2>Form Pengajuan Pembentukan Koperasi</h2>
-					    <form method="post" action="contact-post.html">
+					  	@if(!is_null(Session::get('message')))            
+	    					<div class="alert alert-success">
+	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+	        					<strong>Sukses!</strong> {{Session::get('message')}}
+	    					</div>
+				        @endif
+					    {{ Form::open(array('url'=>'ajuanbentuk', 'method'=>'POST', 'files'=>true)) }}
 					    	<div>
 						    	<span>Nomor Kartu Tanda Penduduk</span>
-						    	<span><input type="username" class="form-control" id="userName"></span>
+						    	<span>{{ Form::text('Id_Number', Input::old('Id_Number'), array('class' => 'form-control', 'placeholder' => 'cth: 1923298928329')) }}<br>{{ "<div id=\"alert\">".$errors->first('Id_Number')."</div>" }}</span>
 						    </div>
 						    <div>
-						    	<span>e-mail</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<span>Email</span>
+						    	<span>{{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'cth: example@gmail.com')) }}<br>{{ "<div id=\"alert\">".$errors->first('email')."</div>" }}</span>
+						    </div>
+						    <div>
+						    	<span>Nama Koperasi</span>
+						    	<span>{{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'cth: Koperasi Sangat Maju')) }}<br>{{ "<div id=\"alert\">".$errors->first('name')."</div>" }}</span>
 						    </div>
 						    <div>
 						    	<span>Jenis Koperasi</span>
 						    	<span>
-						    		<select>
-									  <option value="volvo">Biasa</option>
-									  <option value="saab">Simpan Pinjam</option>
-									  <option value="mercedes">Blabla</option>
-									  <option value="audi">Lain Lain</option>
+						    		<select name="jenis_koperasi">
+									  <option value="Biasa">Biasa</option>
+									  <option value="Simpan Pinjam">Simpan Pinjam</option>
+									  <option value="Dagang">Dagang</option>
+									  <option value="Lain-Lain">Lain-Lain</option>
 									</select>
 						    	</span>
 						    </div>
 						    <div>
-						     	<span>upload dokumen .zip/.rar</span>
-						    	<span><input type="file" name="pic" accept=".zip/*, .rar/*"></span>
+						     	<span>Upload dokumen .zip/.rar</span>
+						    	<span><input type="file" name="file" accept=".zip/*, .rar/*">{{ "<div id=\"alert\">".$errors->first('file')."</div>" }}</span>
 						    </div>
 						   <div>
 						   		<span><input type="submit" value="buat koperasi"></span>
 						  </div>
-					    </form>
+					    {{ Form::close() }}
 				    </div>
   				</div>		
   				<div class="clearfix"></div>		

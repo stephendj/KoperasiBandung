@@ -88,7 +88,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        	Pertanyaan
 		        @endif
 		        @if(Request::is('ajukan-bentuk'))
-		        	Pengajuan Pembentukan>
+		        	Pengajuan Pembentukan
 		        @endif
 		        @if(Request::is('ajukan-bubar'))
 		        	Pengajuan Pembubaran

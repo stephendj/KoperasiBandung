@@ -77,10 +77,9 @@ class AjuanController extends BaseController {
 	public function addAjuanBubar() {
 		// Memvalidasi Input
 		$rules = array(
-			'no_ktp'	   	=> 'required',
+			'Id_Number'	   	=> 'required',
 		    'email'   		=> 'required|email',
-		    'name'		    => 'required|unique:koperasi',
-		    'jenis_koperasi'=> 'required',
+		    'nama_koperasi'	=> 'required',
 		    'file'			=> 'required|max:2048|mimes:zip,rar'
 		);
 
@@ -92,6 +91,25 @@ class AjuanController extends BaseController {
 		    return Redirect::to('ajukan-bubar')
 		        ->withErrors($validator) // send back all errors to the login form
 		        ->withInput();
+		} else {
+			$file = Input::file('file');
+			$file->move('upload/ajuan', $file->getClientOriginalName());
+
+			$ajuan = new Ajuan;
+			$ajuan->id_ajuan		= NULL;
+	        $ajuan->id_staff 		= NULL;
+	        $ajuan->nama_koperasi   = Input::get('nama_koperasi');
+	        $ajuan->jenis_ajuan		= 'Pembubaran';
+	        $ajuan->jenis_koperasi	= Koperasi::getJenisByNama(Input::get('nama_koperasi'));
+	        $ajuan->status 			= 'Sedang Diproses';
+	        $ajuan->id_pengaju 		= Input::get('Id_Number');
+	        $ajuan->email 			= Input::get('email');
+	        $ajuan->file 			= $file->getClientOriginalName();
+
+	        $ajuan->save();
+	        
+	        return Redirect::back()
+	        	->with('message','Ajuan berhasil dikirimkan');
 		}
 	}
 

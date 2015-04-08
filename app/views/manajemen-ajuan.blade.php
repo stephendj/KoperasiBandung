@@ -14,10 +14,10 @@
 					    </ul>
 					    <div id="myTabContent" class="tab-content">
 					      <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						    <div class="row grids_btm top">
-								<div class="grid_list">
-									@if(!is_null($ajuanbentuk))
-					      			  @foreach($ajuanbentuk as $ajuan)
+						    @if(!is_null($ajuanbentuk))
+					      		@foreach($ajuanbentuk as $ajuan)
+						    	<div class="row grids_btm top">
+									<div class="grid_list">
 										<div class="daftar-audit">
 										    <h3>{{$ajuan->nama_koperasi}}</h3>
 										    @if($ajuan->status === 'Sedang Diproses')
@@ -29,7 +29,7 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
-										<a href="#" download="laporankoperasi">
+										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
 											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
 										</a>
 										<div class="clearfix"></div>	
@@ -63,19 +63,19 @@
 									  				<div class="clearfix"></div>		
 												</div> <!-- end contact --> 
 											</div> 	   
-								 			<div class="clearfix"></div>
-								 	  @endforeach
-									@else
-									  <center><br><h3>Tidak Ada Ajuan</h3></center>
-									@endif
+								 		<div class="clearfix"></div>
+									</div>
 								</div>
-							</div>
+								@endforeach
+							@else
+							  <center><br><h3>Tidak Ada Ajuan</h3></center>
+							@endif
 						  </div>
 					      <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-					         <div class="row grids_btm top">
-								<div class="grid_list">
-								@if(!is_null($ajuansimpanpinjam))
-					      			  @foreach($ajuansimpanpinjam as $ajuan)
+					      	@if(!is_null($ajuansimpanpinjam))
+			      			  	@foreach($ajuansimpanpinjam as $ajuan)
+					         	<div class="row grids_btm top">
+									<div class="grid_list">
 										<div class="daftar-audit">
 										    <h3>{{$ajuan->nama_koperasi}}</h3>
 										    @if($ajuan->status === 'Sedang Diproses')
@@ -87,7 +87,7 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
-										<a href="#" download="laporankoperasi">
+										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
 											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
 										</a>
 										<div class="clearfix"></div>	
@@ -121,19 +121,19 @@
 									  				<div class="clearfix"></div>		
 												</div> <!-- end contact --> 
 											</div> 	   
-								 			<div class="clearfix"></div>
-								 	  @endforeach
-									@else
-									  <center><br><h3>Tidak Ada Ajuan</h3></center>
-									@endif
+							 			<div class="clearfix"></div>
+									</div>
 								</div>
-							</div>
+								@endforeach
+							@else
+							  <center><br><h3>Tidak Ada Ajuan</h3></center>
+							@endif
 					      </div>
 					      <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
-					         <div class="row grids_btm top">
-								<div class="grid_list">
-								@if(!is_null($ajuanbubar))
-					      			  @foreach($ajuanbubar as $ajuan)
+					      	@if(!is_null($ajuanbubar))
+				      			@foreach($ajuanbubar as $ajuan)
+					         	<div class="row grids_btm top">
+									<div class="grid_list">
 										<div class="daftar-audit">
 										    <h3>{{$ajuan->nama_koperasi}}</h3>
 										    @if($ajuan->status === 'Sedang Diproses')
@@ -145,7 +145,7 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
-										<a href="#" download="laporankoperasi">
+										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
 											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
 										</a>
 										<div class="clearfix"></div>	
@@ -179,13 +179,13 @@
 									  				<div class="clearfix"></div>		
 												</div> <!-- end contact --> 
 											</div> 	   
-								 			<div class="clearfix"></div>
-								 	  @endforeach
-									@else
-									  <center><br><h3>Tidak Ada Ajuan</h3></center>
-									@endif
+								 		<div class="clearfix"></div>
+									</div>
 								</div>
-							</div>
+							@endforeach
+							@else
+							  <center><br><h3>Tidak Ada Ajuan</h3></center>
+							@endif
 					      </div> 
 					    </div>
 					  </div>

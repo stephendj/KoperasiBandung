@@ -23,9 +23,6 @@ Route::group(array('prefix' => '/'), function()
     Route::post('ajuanbentuk', array('uses' => 'AjuanController@addAjuanBentuk'));
     Route::post('ajuanbubar', array('uses' => 'AjuanController@addAjuanBubar'));
 
-    Route::get('ajukan-bubar', function() {
-    	return View::make('pengajuan-pembubaran');
-    });
     Route::get('audit', function() {
     	return View::make('unggah-audit');
     });
@@ -39,6 +36,7 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::post('/', function() {
     	return Redirect::to('admin/ajuan');
     });
+
     Route::get('ajuan', array('uses' => 'AjuanController@showAjuan'));
     Route::post('ajuan/edit/{id}', array('uses' => 'AjuanController@changeStatus'));
 

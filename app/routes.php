@@ -28,6 +28,7 @@ Route::group(array('prefix' => '/'), function()
     Route::get('audit', function() {
     	return View::make('unggah-audit');
     });
+    
 });
 
 Route::group(array('prefix' => 'admin'), function() {

@@ -14,7 +14,7 @@ class AdminTable extends Migration {
 	{
 	    Schema::create('Admin', function($table)
 	    {
-	        $table->increments('id');
+	        $table->increments('id_staff');
 	        $table->string('username')->unique;
 	        $table->string('password');
 	    });
@@ -22,7 +22,7 @@ class AdminTable extends Migration {
 
 	public function down()
 	{
-	    Schema::drop('users');
+	    Schema::drop('Admin');
 	}
 
 

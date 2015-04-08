@@ -16,15 +16,21 @@ class PertanyaanTable extends Migration {
 	    Schema::create('Pertanyaan', function($table)
 	    {
 	        $table->increments('id_pertanyaan');
+	        $table->unsignediInteger('id_staff');
 	        $table->text('pertanyaan_user');
 	        $table->text('jawaban');
 	        $table->string('nama');
 	        $table->string('email');
 	    });
+	    Schema::table('Pertanyaan', function($table)
+	    {
+	    	$table->foreign('id_staff')
+				->references('id_staff')->on('Admin');
+		});
 	}
 
 	public function down()
 	{
-	    Schema::dropIfExists('Laporan');
+	    Schema::dropIfExists('Pertanyaan');
 	}
 }

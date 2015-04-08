@@ -39,6 +39,7 @@ Route::group(array('prefix' => 'admin'), function() {
 
     Route::get('ajuan', array('uses' => 'AjuanController@showAjuan'));
     Route::post('ajuan/edit/{id}', array('uses' => 'AjuanController@changeStatus'));
+    Route::get('ajuan/delete/{id}', array('uses' => 'AjuanController@deleteAjuan'));
 
     Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
     Route::post('addKoperasi', 'KoperasiController@addKoperasi');

@@ -13,8 +13,15 @@
 					      <li role="presentation" class=""><a href="#dropdown1" role="tab" id="dropdown-tab" data-toggle="tab" aria-controls="dropdown" aria-expanded="false"><h5 class="paneltabajuan">Ajuan Pembubaran Koperasi</h5></a></li>
 					    </ul>
 					    <div id="myTabContent" class="tab-content">
+				    	@if(!is_null(Session::get('message')))
+				    		<br>            
+	    					<div class="alert alert-success">
+	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+	        					<strong>Sukses!</strong> {{Session::get('message')}}
+	    					</div>
+				        @endif
 					      <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						    @if(!is_null($ajuanbentuk))
+						    @if(count($ajuanbentuk)>0)
 					      		@foreach($ajuanbentuk as $ajuan)
 						    	<div class="row grids_btm top">
 									<div class="grid_list">
@@ -29,8 +36,11 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
+						 				<a href="ajuan/delete/{{$ajuan->id_ajuan}}">
+											<button class="tombol-audit cek-audit">Hapus</button>
+										</a>
 										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
-											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
+											<button class="tombol-audit cek-audit">Unduh Dokumen Ajuan</button>
 										</a>
 										<div class="clearfix"></div>	
 											<div class="formjawaban">
@@ -72,7 +82,7 @@
 							@endif
 						  </div>
 					      <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-					      	@if(!is_null($ajuansimpanpinjam))
+					      	@if(count($ajuansimpanpinjam)>0)
 			      			  	@foreach($ajuansimpanpinjam as $ajuan)
 					         	<div class="row grids_btm top">
 									<div class="grid_list">
@@ -87,6 +97,9 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
+						 				<a href="ajuan/delete/{{$ajuan->id_ajuan}}">
+											<button class="tombol-audit cek-audit">Hapus</button>
+										</a>
 										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
 											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
 										</a>
@@ -130,7 +143,7 @@
 							@endif
 					      </div>
 					      <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
-					      	@if(!is_null($ajuanbubar))
+					      	@if(count($ajuanbubar)>0)
 				      			@foreach($ajuanbubar as $ajuan)
 					         	<div class="row grids_btm top">
 									<div class="grid_list">
@@ -145,6 +158,9 @@
 											@endif
 										</div>
 						 				<button class="tombol-audit cek-audit">Lihat</button>
+						 				<a href="ajuan/delete/{{$ajuan->id_ajuan}}">
+											<button class="tombol-audit cek-audit">Hapus</button>
+										</a>
 										<a href="{{asset('upload/ajuan/'.$ajuan->file)}}" download>
 											<button class="tombol-audit">Unduh Dokumen Ajuan</button>
 										</a>

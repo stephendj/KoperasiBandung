@@ -17,28 +17,68 @@ class KoperasiController extends BaseController {
 	
 	public function addKoperasi()
 	{
-		$id_pendiri=Input::get('id_pendiri');
-		$nama=Input::get('nama');
-		$jenis=Input::get('jenis_koperasi');
-		$alamat=Input::get('alamat');
-		$no_telepon=Input::get('no_telepon');
-		$deskripsi=Input::get('deskripsi');
+		// Memvalidasi Input
+		$rules = array(
+			'ID_Number'			=> 'required',
+		    'Name' 				=> 'required|unique:koperasi,nama',
+		    'jenis_koperasi'	=> 'required',
+		    'Address'			=> 'required',
+		    'Telephone_Number' 	=> 'required',
+		    'Description'   	=> 'required'
+		);
+		// run the validation rules on the inputs from the form
+		$validator = Validator::make(Input::all(), $rules);
 
-		Koperasi::createKoperasi($id_pendiri, $nama, $jenis, $alamat, $no_telepon, $deskripsi);
-		return Redirect::to('admin/koperasi');
+		// if the validator fails, redirect back to the form
+		if ($validator->fails()) {
+		    return Redirect::to('admin/koperasi')
+		        ->withErrors($validator) // send back all errors to the login form
+		        ->withInput()
+		        ->with('message', 'Koperasi baru tidak berhasil ditambahkan');
+		} else {
+			$id_pendiri=Input::get('ID_Number');
+			$nama=Input::get('Name');
+			$jenis=Input::get('jenis_koperasi');
+			$alamat=Input::get('Address');
+			$no_telepon=Input::get('Telephone_Number');
+			$deskripsi=Input::get('Description');
+
+			Koperasi::createKoperasi($id_pendiri, $nama, $jenis, $alamat, $no_telepon, $deskripsi);
+			return Redirect::to('admin/koperasi');
+		}
+
 	}
 
 	public function editKoperasi()
 	{
-		$id=Input::get('id');
-		$id_pendiri=Input::get('id_pendiri');
-		$nama=Input::get('nama');
-		$jenis=Input::get('jenis_koperasi');
-		$alamat=Input::get('alamat');
-		$no_telepon=Input::get('no_telepon');
-		$deskripsi=Input::get('deskripsi');
-		Koperasi::editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi);
-		return Redirect::to('admin/koperasi');
+		// Memvalidasi Input
+		$rules = array(
+		    'Name' 				=> 'required|unique:koperasi,nama',
+		    'jenis_koperasi'	=> 'required',
+		    'Address'			=> 'required',
+		    'Telephone_Number' 	=> 'required',
+		    'Description'   	=> 'required'
+		);
+		// run the validation rules on the inputs from the form
+		$validator = Validator::make(Input::all(), $rules);
+
+		// if the validator fails, redirect back to the form
+		if ($validator->fails()) {
+		    return Redirect::to('admin/koperasi')
+		        ->withErrors($validator) // send back all errors to the login form
+		        ->withInput()
+		        ->with('message', 'Koperasi tidak berhasil diubah');
+		} else {
+			$id=Input::get('id');
+			$id_pendiri=Input::get('ID_Number');
+			$nama=Input::get('Name');
+			$jenis=Input::get('jenis_koperasi');
+			$alamat=Input::get('Address');
+			$no_telepon=Input::get('Telephone_Number');
+			$deskripsi=Input::get('Description');
+			Koperasi::editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi);
+			return Redirect::to('admin/koperasi');
+		}
 	}
 
 	public function deleteKoperasi($id)

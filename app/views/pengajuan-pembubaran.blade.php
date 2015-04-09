@@ -6,15 +6,15 @@
 		<div class="row contact"><!-- start contact -->				
 				<div class="col-md-4">
 				<div class="company_ad">
-				     	<h2>Syarat Pengajuan Pembubaran Koperasi:</h2>
+				     	<h2>Prosedur pembubaran koperasi (non keputusan Pemerintah)</h2>
       				
-						 <p>1. Bla bla bla bla</p>
-						 <p>2. Bla bla bla bla</p>
-						 <p>3. Bla bla bla bla</p>
-						 <p>4. Bla bla bla bla</p>
-						 <p>5. Bla bla bla bla</p>
-						 <p>6. Bla bla bla bla</p>
-						 <p>7. Bla bla bla bla</p>
+						 <p>Keputusan Rapat Anggota Rapat </p>
+						 <p>Pengurus koperasi atau kuasa rapat anggota memberitahukan secara 
+						 tertulis keputusan pembubaran koperasi tersebut kepada semua kreditor 
+						 dan pemerintah dalam jangka waktu paling lama 14 hari sejak tanggal 
+						 keputusan rapat anggota pembubaran. </p>
+						 <p>Jika alasan pembubaran diterima oleh pemerintah maka status
+						 badan hukum koperasi yang bersangkutan akan dihapus.</p>
 				   	
 			   	</div>
 				</div>				

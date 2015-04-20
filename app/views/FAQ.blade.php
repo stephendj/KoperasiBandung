@@ -34,7 +34,7 @@
 			<div class="col-md-5 blog_right">
 				<div class="pertanyaan-form">
 				  	<h2>Ajukan Pertanyaan</h2>
-					    <form method="post" action="contact-post.html">
+					    {{ Form::open(array('url'=>'bertanya', 'method'=>'POST', 'files'=>true)) }}
 					    	<div>
 						    	<span>nama</span>
 						    	<span><input type="username" class="form-control" id="userName"></span>
@@ -50,7 +50,7 @@
 						   <div>
 						   		<span><input type="submit" value="tanyakan"></span>
 						  </div>
-					    </form>
+					    {{ Form::close() }}
 				    </div>
 			</div>
 			<div class="clearfix"></div>

@@ -23,6 +23,8 @@ Route::group(array('prefix' => '/'), function()
     Route::post('ajuanbentuk', array('uses' => 'AjuanController@addAjuanBentuk'));
     Route::post('ajuanbubar', array('uses' => 'AjuanController@addAjuanBubar'));
 
+    Route::post('bertanya', 'PertanyaanController@addPertanyaan');
+
     Route::get('audit', function() {
     	return View::make('unggah-audit');
     });

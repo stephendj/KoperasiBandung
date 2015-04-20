@@ -22,7 +22,7 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Tambahkan Koperasi</h2>
-										    <form method="post" action="addKoperasi">
+										    <form method="post" action="addKoperasi()">
 										    	<div>
 											    	<span>ID Pendiri</span>
 											    	<span><input type="username" class="form-control" name="ID_Number" value="{{Input::old('ID_Number')}}">

@@ -14,16 +14,14 @@
 Route::group(array('prefix' => '/'), function()
 {
 	Route::get('/', 'KoperasiController@showKoperasi');
-    Route::get('tanya', function() {
-    	return View::make('FAQ');
-    });
     
     Route::get('ajukan-bentuk', array('uses' => 'AjuanController@showAjuanBentuk'));
     Route::get('ajukan-bubar', array('uses' => 'AjuanController@showAjuanBubar'));
     Route::post('ajuanbentuk', array('uses' => 'AjuanController@addAjuanBentuk'));
     Route::post('ajuanbubar', array('uses' => 'AjuanController@addAjuanBubar'));
 
-    Route::post('bertanya', 'PertanyaanController@addPertanyaan');
+    Route::post('bertanya',  array('uses' => 'PertanyaanController@addPertanyaan'));
+    Route::get('tanya', array('uses' => 'PertanyaanController@showPertanyaan'));
 
     Route::get('audit', function() {
     	return View::make('unggah-audit');
@@ -48,10 +46,12 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::post('editKoperasi', 'KoperasiController@editKoperasi');
     Route::get('deleteKoperasi/{id}', 'KoperasiController@deleteKoperasi');
     
-    Route::get('jawab', function() {
-    	return View::make('jawab-pertanyaan');
-    });
     Route::get('audit', function() {
     	return View::make('cek-audit');
     });
+
+
+    Route::get('jawab', array('uses' => 'PertanyaanController@showPertanyaanAdmin'));
+    Route::get('deletePertanyaan/{id}', 'PertanyaanController@deletePertanyaan');
+    Route::get('jawabPertanyaan/{id}', 'PertanyaanController@addJawaban');
 });

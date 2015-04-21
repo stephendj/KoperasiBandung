@@ -6,61 +6,49 @@
 	<div class="blog"><!-- start blog -->
 		<div class="row">
 			<div class="col-md-7 blog_left">
+				@forelse($pertanyaan as $p)
 					<div class="row grids_btm top">
 						<div class="grid_list">
-						
-							@forelse($pertanyaan as $p)
-									<div class="pertanyaan-jawaban daftarkoperasi">
-										<h3>Pertanyaan: </h3>
-										<p>{{$p->pertanyaan_user}}</p>
-										<div class="profilkoperasi">
-										<h3>Jawaban: </h3>
-											@if(isset($p['jawaban']))
-											  <p>{{ $p['jawaban'] }}</p>
-											 @else
-											  <p> Belum dijawab </p>
-											@endif
-										</div> 	   
-						 			</div>
-							 			
-							@empty
-								<div class="row grids_btm top">
-									Tidak ada koperasi
-								</div>
-							@endforelse
-
+							<div class="pertanyaan-jawaban daftarkoperasi">
+								  	<h3>Pertanyaan: </h3>
+									<p>{!!$p->pertanyaan_user!!}</p>
+									<div class="profilkoperasi">
+										<h3>Jawaban</h3>
+										<p>{!!$p->jawaban!!}</p></div> 	   
+				 			</div>
+				 			 <div class="clearfix"></div>
 						</div>
 					</div>
+				@empty
+					<h1><center>Tidak ada pertanyaan</center></h1>
+				@endforelse
 			</div>
 			<div class="col-md-5 blog_right">
+				<div class="pertanyaan-form">
 				  	<h2>Ajukan Pertanyaan</h2>
-					@if(!is_null(Session::get('message')))            
+				  		@if(!is_null(Session::get('message')))            
 	    					<div class="alert alert-success">
 	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
-	        					<strong>Sukses!</strong> {{Session::get('message')}}
+	        					<strong>Sukses!</strong> {!! Session::get('message') !!}
 	    					</div>
 				        @endif
-
- 						 {{ Form::open(array('url'=>'bertanya', 'method'=>'POST', 'files'=>true)) }}
+					    {!! Form::open(array('url'=>'bertanya', 'method'=>'POST')) !!}
 					    	<div>
 						    	<span>Nama</span>
-						    	<span>{{ Form::text('userName', Input::old('userName'), array('class' => 'form-control')) }}<br>{{ "<div id=\"alert\">".$errors->first('userName')."</div>" }}</span>
+						    	<span>{!! Form::text('nama', Input::old('nama'), array('class' => 'form-control')) !!}<br>{!! "<div id=\"alert\">".$errors->first('nama')."</div>" !!}</span>
 						    </div>
 						    <div>
 						    	<span>Email</span>
-						    	<span>{{ Form::text('inputEmail3', Input::old('inputEmail3'), array('class' => 'form-control', 'placeholder' => 'cth: example@gmail.com')) }}<br>{{ "<div id=\"alert\">".$errors->first('inputEmail3')."</div>" }}</span>
+						    	<span>{!! Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'cth: example@gmail.com')) !!}<br>{!! "<div id=\"alert\">".$errors->first('email')."</div>" !!}</span>
 						    </div>
 						    <div>
 						    	<span>Pertanyaan</span>
-						    	<span>{{ Form::textArea('userMsg', Input::old('userMsg'), array('class' => 'form-control')) }}<br>{{ "<div id=\"alert\">".$errors->first('userMsg')."</div>" }}</span>
+						    	<span>{!! Form::textArea('pertanyaan_user', Input::old('pertanyaan_user'), array('class' => 'form-control')) !!}<br>{!! "<div id=\"alert\">".$errors->first('pertanyaan_user')."</div>" !!}</span>
 						    </div>
-						  
-						   <div>
-						   		<span><input type="submit" value="Bertanya"></span>
-						  </div>
-					    {{ Form::close() }}
-
-
+						   	<div>
+						   		<span><input type="submit" value="tanyakan"></span>
+						  	</div>
+					    {!! Form::close() !!}
 				    </div>
 			</div>
 			<div class="clearfix"></div>

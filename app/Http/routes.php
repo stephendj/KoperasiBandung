@@ -50,5 +50,5 @@ Route::group(array('prefix' => 'admin'), function() {
 
     Route::get('jawab', array('uses' => 'PertanyaanController@showPertanyaanAdmin'));
     Route::get('deletePertanyaan/{id}', 'PertanyaanController@deletePertanyaan');
-    Route::get('jawabPertanyaan/{id}', 'PertanyaanController@addJawaban');
+    Route::post('jawabPertanyaan/{id}', 'PertanyaanController@addJawaban');
 });

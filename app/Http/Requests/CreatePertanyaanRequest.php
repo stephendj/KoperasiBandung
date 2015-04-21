@@ -11,7 +11,7 @@ class CreatePertanyaanRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,9 @@ class CreatePertanyaanRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'pertanyaan_user' => 'required',
+	    	'nama' => 'required',
+	    	'email' => 'required|email'
 		];
 	}
 

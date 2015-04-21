@@ -11,19 +11,19 @@ class LaporanSeeder extends Seeder
 	    Laporan::create(array(
             'id' => NULL,
         	'id_koperasi' => 1,
-            'id_pengirim' => 100000000000000,
+            'id_pengirim' => '100000000000000',
             'file' => 'koperasisatu.zip'
 	    ));
         Laporan::create(array(
             'id' => NULL,
-            'id_koperasi' => 1,
-            'id_pengirim' => 100000000000000,
+            'id_koperasi' => 2,
+            'id_pengirim' => '100000000000000',
             'file' => 'koperasidua.zip'
         ));
         Laporan::create(array(
             'id' => NULL,
-            'id_koperasi' => 1,
-            'id_pengirim' => 100000000000000,
+            'id_koperasi' => 3,
+            'id_pengirim' => '100000000000000',
             'file' => 'koperasitiga.zip'
         ));
 	}

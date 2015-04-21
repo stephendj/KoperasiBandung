@@ -4,38 +4,45 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Pertanyaan
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests\CreatePertanyaanRequest;
+use App\Pertanyaan;
 
 class PertanyaanController extends Controller {
 
 	public function showPertanyaan()
 	{
-		$pertanyaan=Pertanyaan::showPertanyaan();
-		return view('daftar-pertanyaan', compact('pertanyaan'));
+		$pertanyaan=Pertanyaan::showPertanyaanUser();
+		return view('FAQ', compact('pertanyaan'));
 	}
 
-	
-	public function addPertanyaan()
+	public function showPertanyaanAdmin()
 	{
-		$pertanyaan_user=Input::get('userMsg');
-		$nama=Input::get('nama');
-		$email=Input::get('email');
+		$pertanyaan=Pertanyaan::showPertanyaan();
+		return view('jawab-pertanyaan', compact('pertanyaan'));
+	}
+	
+	public function addPertanyaan(CreatePertanyaanRequest $request)
+	{
+		$r = $request->all();
 
-		Pertanyaan::createPertanyaan($pertanyaan_user, $nama, $email);
-		return redirect()->back()->with('message','Pertanyaan telah disimpan');;
+		Pertanyaan::createPertanyaan($r['pertanyaan_user'], $r['nama'], $r['email']);
+		return redirect()->back()->with('message','Pertanyaan berhasil dikirimkan');
 	}
 
-	public function addJawaban ($_id){ //edit Pertanyaan
-        $UpdateDetails = Pertanyaan::where('id', '=',  $_id)->firstOrFail();
-        $UpdateDetails->id_staff = Input::get('id_staff');
-        $UpdateDetails->jawaban = Input::get('userMsg');
+	public function addJawaban ($id){ //edit Pertanyaan
+        $UpdateDetails = Pertanyaan::find($id);
+        $UpdateDetails->id_staff = \Auth::id();
+        $UpdateDetails->jawaban = Input::get('jawaban');
         $UpdateDetails->save();
+
+        return redirect()->back()->with('message','Pertanyaan telah dijawab');
     }
 
 	public function deletePertanyaan($id)
 	{
 		Pertanyaan::deletePertanyaan($id);
-		return redirect()->back();
+		return redirect()->back()->with('message','Pertanyaan telah dihapus');
 	}
 
 	// /**

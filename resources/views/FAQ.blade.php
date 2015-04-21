@@ -8,49 +8,59 @@
 			<div class="col-md-7 blog_left">
 					<div class="row grids_btm top">
 						<div class="grid_list">
-							<div class="pertanyaan-jawaban daftarkoperasi">
-								  	<h3>Pertanyaan: </h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae sit qui, eum quas? Quaerat quo veniam impedit atque porro ullam, delectus consequuntur molestias, repudiandae fuga animi maiores incidunt ab? </p>
-									<div class="profilkoperasi">
-										<h3>Jawaban</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
-				 			</div>
-				 			 <div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="row grids_btm top">
-						<div class="grid_list">
-							<div class="pertanyaan-jawaban daftarkoperasi">
-								  	<h3>Pertanyaan: </h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae sit qui, eum quas? Quaerat quo veniam impedit atque porro ullam, delectus consequuntur molestias, repudiandae fuga animi maiores incidunt ab? </p>
-									<div class="profilkoperasi">
-										<h3>Jawaban</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
-				 			</div>
-				 			 <div class="clearfix"></div>
+						
+							@forelse($pertanyaan as $p)
+									<div class="pertanyaan-jawaban daftarkoperasi">
+										<h3>Pertanyaan: </h3>
+										<p>{{$p->pertanyaan_user}}</p>
+										<div class="profilkoperasi">
+										<h3>Jawaban: </h3>
+											@if(isset($p['jawaban']))
+											  <p>{{ $p['jawaban'] }}</p>
+											 @else
+											  <p> Belum dijawab </p>
+											@endif
+										</div> 	   
+						 			</div>
+							 			
+							@empty
+								<div class="row grids_btm top">
+									Tidak ada koperasi
+								</div>
+							@endforelse
+
 						</div>
 					</div>
 			</div>
 			<div class="col-md-5 blog_right">
-				<div class="pertanyaan-form">
 				  	<h2>Ajukan Pertanyaan</h2>
-					    <form method="post" action="contact-post.html">
+					@if(!is_null(Session::get('message')))            
+	    					<div class="alert alert-success">
+	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+	        					<strong>Sukses!</strong> {{Session::get('message')}}
+	    					</div>
+				        @endif
+
+ 						 {{ Form::open(array('url'=>'bertanya', 'method'=>'POST', 'files'=>true)) }}
 					    	<div>
-						    	<span>nama</span>
-						    	<span><input type="username" class="form-control" id="userName"></span>
+						    	<span>Nama</span>
+						    	<span>{{ Form::text('userName', Input::old('userName'), array('class' => 'form-control')) }}<br>{{ "<div id=\"alert\">".$errors->first('userName')."</div>" }}</span>
 						    </div>
 						    <div>
-						    	<span>e-mail</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<span>Email</span>
+						    	<span>{{ Form::text('inputEmail3', Input::old('inputEmail3'), array('class' => 'form-control', 'placeholder' => 'cth: example@gmail.com')) }}<br>{{ "<div id=\"alert\">".$errors->first('inputEmail3')."</div>" }}</span>
 						    </div>
 						    <div>
-						    	<span>isi pertanyaan</span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span>Pertanyaan</span>
+						    	<span>{{ Form::textArea('userMsg', Input::old('userMsg'), array('class' => 'form-control')) }}<br>{{ "<div id=\"alert\">".$errors->first('userMsg')."</div>" }}</span>
 						    </div>
+						  
 						   <div>
-						   		<span><input type="submit" value="tanyakan"></span>
+						   		<span><input type="submit" value="Bertanya"></span>
 						  </div>
-					    </form>
+					    {{ Form::close() }}
+
+
 				    </div>
 			</div>
 			<div class="clearfix"></div>

@@ -1,0 +1,175 @@
+<?php $__env->startSection('content'); ?>
+	<div class="container">
+		<div class="blog"><!-- start blog -->
+		<?php if(!is_null(Session::get('message'))): ?>            
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<strong> Error! <?php echo Session::get('message'); ?></strong>
+		</div>
+	    <?php endif; ?>
+		<div class="row">
+			<div class="col-md-12 blog_left">
+					<div class="row">
+						<button class="buat-koperasi">
+							Tambah Koperasi Baru
+						</button>
+					</div>
+					<div class="row">
+						<div class="formjawaban">
+								<div class="row contact"><!-- start contact -->		
+									<div class="col-md-12">
+									  <div class="contact-form">
+									  	<h2>Tambahkan Koperasi</h2>
+										    <form method="post" action="addKoperasi()">
+										    	<div>
+											    	<span>ID Pendiri</span>
+											    	<span><input type="username" class="form-control" name="ID_Number" value="<?php echo Input::old('ID_Number'); ?>">
+											    		  <div id="alert"><?php echo $errors->first('ID_Number'); ?></div> 
+											    	</span>
+											    </div>
+										    	<div>
+											    	<span>Nama Koperasi</span>
+											    	<span><input type="username" class="form-control" name="Name" value="<?php echo Input::old('Name'); ?>">
+											    		  <div id="alert"><?php echo $errors->first('Name'); ?></div> 
+											    	</span>
+											    </div>
+										    	<div>
+											    	<span>Jenis Koperasi</span>
+											    	<span>
+											    		<select class="audit-form" name="jenis_koperasi">
+															<option value="Produksi">Produksi</option>
+										    				<option value="Konsumsi">Konsumsi</option>
+															<option value="Simpan Pinjam">Simpan Pinjam</option>
+															<option value="Dagang">Dagang</option>
+														</select>
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Alamat</span>
+											    	<span><input type="username" class="form-control" name="Address" value="<?php echo Input::old('Address'); ?>">
+											    		  <div id="alert"><?php echo $errors->first('Address'); ?></div> 
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Nomor Telepon</span>
+											    	<span><input type="username" class="form-control" name="Telephone_Number" value="<?php echo Input::old('Telephone_Number'); ?>">
+											    		  <div id="alert"><?php echo $errors->first('Telephone_Number'); ?></div> 
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Deskripsi Koperasi</span>
+											    	<span><input type="username" class="form-control" name="Description" value="<?php echo Input::old('Description'); ?>">
+											    		  <div id="alert"><?php echo $errors->first('Description'); ?></div> 
+											    	</span>
+											    </div>
+											   <div>
+											   		<span><input type="submit" value="Tambah"></span>
+											  </div>
+										    </form>
+									    </div>
+					  				</div>		
+					  				<div class="clearfix"></div>		
+								</div> <!-- end contact --> 
+							</div> 	
+					</div>
+					<?php $__empty_1 = true; foreach($koperasi as $kop): $__empty_1 = false; ?>
+					<div class="row grids_btm top">
+						<div class="grid_list">
+							<div class="daftar-audit">
+								 <h3><?php echo $kop->nama; ?></h3>
+							</div>
+							<a href="<?php echo URL::to('admin/deleteKoperasi/'.$kop->id_koperasi); ?>" >
+				 				<button class="tombol-audit">
+									Hapus
+								</button>
+							</a>
+							<button class="tombol-audit cek-audit">
+								Lihat Data
+							</button>
+							<div class="clearfix"></div>
+							<div class="formjawaban">
+								<div class="row contact"><!-- start contact -->		
+									<div class="col-md-12">
+									  <div class="contact-form">
+									  	<h2>Ubah Data Koperasi</h2>
+										    <form method="post" action="editKoperasi">
+											    <input type="hidden" name="id" value="<?php echo $kop->id_koperasi; ?>">
+											    <div>
+											    	<span>ID Pendiri</span>
+											    	<span><input type="username" class="form-control" name="ID_Number" value="<?php echo $kop->id_pendiri; ?>" readonly></span>
+											    </div>
+										    	<div>
+											    	<span>Nama Koperasi</span>
+											    	<span><input type="username" class="form-control" name="Name" value="<?php echo $kop->nama; ?>">
+											    		  <div id="alert"><?php echo $errors->first('Name'); ?></div> 
+											    	</span>
+											    </div>
+										    	<div>
+											    	<span>Jenis Koperasi</span>
+											    	<span>
+											    		<select class="audit-form" name="jenis_koperasi">
+											    			<?php if($kop->jenis_koperasi === "Produksi"): ?>
+											    				<option value="Produksi" selected>Produksi</option>
+											    				<option value="Konsumsi">Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															<?php elseif($kop->jenis_koperasi === "Konsumsi"): ?>
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" selected>Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															<?php elseif($kop->jenis_koperasi === "Simpan Pinjam"): ?>
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" >Konsumsi</option>
+																<option value="Simpan Pinjam" selected>Simpan Pinjam</option>
+																<option value="Dagang">Dagang</option>
+															<?php else: ?>
+																<option value="Produksi" >Produksi</option>
+											    				<option value="Konsumsi" >Konsumsi</option>
+																<option value="Simpan Pinjam">Simpan Pinjam</option>
+																<option value="Dagang" selected>Dagang</option>
+											    			<?php endif; ?>
+														  
+														</select>
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Alamat</span>
+											    	<span><input type="username" class="form-control" name="Address" value="<?php echo $kop->alamat; ?>">
+											    		  <div id="alert"><?php echo $errors->first('Address'); ?></div> 
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Nomor Telepon</span>
+											    	<span><input type="username" class="form-control" name="Telephone_Number" value="<?php echo $kop->no_telepon; ?>">
+											    		  <div id="alert"><?php echo $errors->first('Telephone_Number'); ?></div>
+											    	</span>
+											    </div>
+											    <div>
+											    	<span>Deskripsi Koperasi</span>
+											    	<span><input type="username" class="form-control" name="Description" value="<?php echo $kop->deskripsi; ?>">
+											    		  <div id="alert"><?php echo $errors->first('Description'); ?></div>
+											    	</span>
+											    </div>
+											    
+											    <div>
+											   		<span><input type="submit" value="Ubah Data"></span>
+											    </div>
+										    </form>
+									    </div>
+					  				</div>		
+					  				<div class="clearfix"></div>		
+								</div> <!-- end contact --> 
+							</div> 	   
+				 			 <div class="clearfix"></div>
+						</div>
+					</div>
+					<?php endforeach; if ($__empty_1): ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout-admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

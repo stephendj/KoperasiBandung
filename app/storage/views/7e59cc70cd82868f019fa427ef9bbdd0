@@ -1,0 +1,96 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="container">
+	<div class="blog"><!-- start blog -->
+		<div class="row">
+			<div class="col-md-7 blog_left">
+					<div class="row grids_btm top">
+						<div class="grid_list">
+							<!-- <div class="pertanyaan-jawaban daftarkoperasi">
+								  	<h3>Pertanyaan: </h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae sit qui, eum quas? Quaerat quo veniam impedit atque porro ullam, delectus consequuntur molestias, repudiandae fuga animi maiores incidunt ab? </p>
+									<div class="profilkoperasi">
+										<h3>Jawaban</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
+				 			</div>
+				 			 <div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="row grids_btm top">
+						<div class="grid_list">
+							<div class="pertanyaan-jawaban daftarkoperasi">
+								  	<h3>Pertanyaan: </h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae sit qui, eum quas? Quaerat quo veniam impedit atque porro ullam, delectus consequuntur molestias, repudiandae fuga animi maiores incidunt ab? </p>
+									<div class="profilkoperasi">
+										<h3>Jawaban</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, nesciunt ullam repudiandae amet saepe expedita reiciendis fugit veniam fugiat natus enim ipsa, quibusdam, ratione consectetur neque? Molestias enim sed facilis! </p></div> 	   
+				 			</div>
+				 			 <div class="clearfix"></div> -->
+
+
+
+							<?php $__empty_1 = true; foreach($pertanyaan as $p): $__empty_1 = false; ?>
+									<div class="pertanyaan-jawaban daftarkoperasi">
+										<h3>Pertanyaan: </h3>
+										<p><?php echo $p->pertanyaan_user; ?></p>
+										<div class="profilkoperasi">
+										<h3>Jawaban: </h3>
+											<?php if(isset($p['jawaban'])): ?>
+											  <p><?php echo $p['jawaban']; ?></p>
+											 <?php else: ?>
+											  <p> Belum dijawab </p>
+											<?php endif; ?>
+										</div> 	   
+						 			</div>
+							 			
+							<?php endforeach; if ($__empty_1): ?>
+								<div class="row grids_btm top">
+									Tidak ada koperasi
+								</div>
+							<?php endif; ?>
+
+						</div>
+					</div>
+			</div>
+			<div class="col-md-5 blog_right">
+				  	<h2>Ajukan Pertanyaan</h2>
+					<?php if(!is_null(Session::get('message'))): ?>            
+	    					<div class="alert alert-success">
+	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+	        					<strong>Sukses!</strong> <?php echo Session::get('message'); ?>
+
+	    					</div>
+				        <?php endif; ?>
+
+ 						 <?php echo Form::open(array('url'=>'bertanya', 'method'=>'POST', 'files'=>true)); ?>
+
+					    	<div>
+						    	<span>Nama</span>
+						    	<span><?php echo Form::text('userName', Input::old('userName'), array('class' => 'form-control')); ?><br><?php echo "<div id=\"alert\">".$errors->first('userName')."</div>"; ?></span>
+						    </div>
+						    <div>
+						    	<span>Email</span>
+						    	<span><?php echo Form::text('inputEmail3', Input::old('inputEmail3'), array('class' => 'form-control', 'placeholder' => 'cth: example@gmail.com')); ?><br><?php echo "<div id=\"alert\">".$errors->first('inputEmail3')."</div>"; ?></span>
+						    </div>
+						    <div>
+						    	<span>Pertanyaan</span>
+						    	<span><?php echo Form::textArea('userMsg', Input::old('userMsg'), array('class' => 'form-control')); ?><br><?php echo "<div id=\"alert\">".$errors->first('userMsg')."</div>"; ?></span>
+						    </div>
+						  
+						   <div>
+						   		<span><input type="submit" value="Bertanya"></span>
+						  </div>
+					    <?php echo Form::close(); ?>
+
+
+
+				    </div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div><!-- end blog -->
+</div>
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout-user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

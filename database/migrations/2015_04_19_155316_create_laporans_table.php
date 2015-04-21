@@ -17,7 +17,7 @@ class CreateLaporansTable extends Migration {
 			$table->increments('id');
 	        $table->unsignedInteger('id_koperasi');
 	        $table->string('id_pengirim');
-	        $table->dateTime('tgl_kirim');
+	        $table->timestamp('tgl_kirim')->default(DB::raw('CURRENT_TIMESTAMP'));
 	        $table->string('file');
 	    });
 	    Schema::table('laporans', function($table)

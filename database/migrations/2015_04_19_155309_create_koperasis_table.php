@@ -17,7 +17,7 @@ class CreateKoperasisTable extends Migration {
 			$table->increments('id');
 	        $table->string('nama')->unique;
 	        $table->string('jenis_koperasi');
-	        $table->dateTime('tgl_pembuatan');
+	        $table->timestamp('tgl_pembuatan')->default(DB::raw('CURRENT_TIMESTAMP'));
 	        $table->string('id_pendiri');
 	        $table->string('alamat');
 	        $table->text('deskripsi');

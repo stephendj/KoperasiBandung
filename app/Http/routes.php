@@ -11,15 +11,6 @@
 |
 */
 
-// Route::get('/', 'WelcomeController@index');
-
-// Route::get('home', 'HomeController@index');
-
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
-
 Route::group(array('prefix' => '/'), function()
 {
 	Route::get('/', 'KoperasiController@showKoperasi');
@@ -41,15 +32,16 @@ Route::group(array('prefix' => '/'), function()
 Route::group(array('prefix' => 'admin'), function() {
     Route::get('/', array('uses' => 'AdminController@showLogin'));
     Route::post('/', array('uses' => 'AdminController@doLogin'));
+    Route::get('logout', array('uses' => 'AdminController@doLogout'));
 
-    Route::get('ajuan', array('uses' => 'AjuanController@showAjuan'));
-    Route::post('ajuan/edit/{id}', array('uses' => 'AjuanController@changeStatus'));
-    Route::get('ajuan/delete/{id}', array('uses' => 'AjuanController@deleteAjuan'));
+    Route::get('ajuan', array('middleware' => 'auth', 'uses' => 'AjuanController@showAjuan'));
+    Route::post('ajuan/edit/{id}', array('middleware' => 'auth', 'uses' => 'AjuanController@changeStatus'));
+    Route::get('ajuan/delete/{id}', array('middleware' => 'auth', 'uses' => 'AjuanController@deleteAjuan'));
 
-    Route::get('koperasi', 'KoperasiController@showAdminKoperasi');
-    Route::post('addKoperasi', 'KoperasiController@addKoperasi');
-    Route::post('editKoperasi', 'KoperasiController@editKoperasi');
-    Route::get('deleteKoperasi/{id}', 'KoperasiController@deleteKoperasi');
+    Route::get('koperasi', array('middleware' => 'auth', 'uses' => 'KoperasiController@showAdminKoperasi'));
+    Route::post('koperasi/add', array('middleware' => 'auth', 'uses' => 'KoperasiController@addKoperasi'));
+    Route::post('koperasi/edit/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@editKoperasi'));
+    Route::get('koperasi/delete/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@deleteKoperasi'));
     
     Route::get('jawab', function() {
     	return View::make('jawab-pertanyaan');

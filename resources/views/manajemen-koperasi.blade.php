@@ -7,6 +7,12 @@
 		<div class="row">
 			<div class="col-md-12 blog_left">
 					<div class="row">
+						@if(!is_null(Session::get('message')))            
+	    					<div class="alert alert-success">
+	        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+	        					<strong>Sukses!</strong> {!! Session::get('message') !!}
+	    					</div>
+				        @endif
 						<button class="buat-koperasi">
 							Tambah Koperasi Baru
 						</button>
@@ -17,14 +23,16 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Tambahkan Koperasi</h2>
-										    <form method="post" action="addKoperasi">
+										    {!! Form::open(array('url'=>'admin/koperasi/add', 'method'=>'POST')) !!}
 										    	<div>
 											    	<span>ID Pendiri</span>
-											    	<span><input type="username" class="form-control" name="id_pendiri"></span>
+											    	<span>{!! Form::text('id_pendiri', Input::old('id_pendiri'), array('class' => 'form-control')) !!}
+											    		{!! "<div id=\"alert\">".$errors->first('id_pendiri')."</div>" !!}</span>
 											    </div>
 										    	<div>
 											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" name="nama"></span>
+											    	<span>{!! Form::text('nama', Input::old('nama'), array('class' => 'form-control')) !!}
+											    		{!! "<div id=\"alert\">".$errors->first('nama')."</div>" !!}</span>
 											    </div>
 										    	<div>
 											    	<span>Jenis Koperasi</span>
@@ -39,20 +47,23 @@
 											    </div>
 											    <div>
 											    	<span>Alamat</span>
-											    	<span><input type="username" class="form-control" name="alamat"></span>
+											    	<span>{!! Form::text('alamat', Input::old('alamat'), array('class' => 'form-control')) !!}
+											    		{!! "<div id=\"alert\">".$errors->first('alamat')."</div>" !!}</span>
 											    </div>
 											    <div>
 											    	<span>Nomor Telepon</span>
-											    	<span><input type="username" class="form-control" name="no_telepon"></span>
+											    	<span>{!! Form::text('no_telepon', Input::old('no_telepon'), array('class' => 'form-control')) !!}
+											    		{!! "<div id=\"alert\">".$errors->first('no_telepon')."</div>" !!}</span>
 											    </div>
 											    <div>
 											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" name="deskripsi"></span>
+											    	<span>{!! Form::text('deskripsi', Input::old('deskripsi'), array('class' => 'form-control')) !!}
+											    		{!! "<div id=\"alert\">".$errors->first('deskripsi')."</div>" !!}</span>
 											    </div>
 											   <div>
 											   		<span><input type="submit" value="Tambah"></span>
 											  </div>
-										    </form>
+										    {!! Form::close() !!}
 									    </div>
 					  				</div>		
 					  				<div class="clearfix"></div>		
@@ -65,7 +76,7 @@
 							<div class="daftar-audit">
 								 <h3>{{$kop->nama}}</h3>
 							</div>
-							<a href="{{URL::to('admin/deleteKoperasi/'.$kop->id_koperasi)}}" >
+							<a href="{{URL::to('admin/koperasi/delete/'.$kop->id)}}" >
 				 				<button class="tombol-audit">
 									Hapus
 								</button>
@@ -79,11 +90,12 @@
 									<div class="col-md-12">
 									  <div class="contact-form">
 									  	<h2>Ubah Data Koperasi</h2>
-										    <form method="post" action="editKoperasi">
-											    <input type="hidden" name="id" value="{{$kop->id_koperasi}}">
-										    	<div>
+										    {!! Form::open(array('url'=>'admin/koperasi/edit/'.$kop->id, 'method'=>'POST')) !!}
+										    	<input type="hidden" name="id_pendiri" value="{{$kop->id_pendiri}}">
+											    <div>
 											    	<span>Nama Koperasi</span>
-											    	<span><input type="username" class="form-control" name="nama" value="{{$kop->nama}}"></span>
+											    	<span><input type="text" class="form-control" name="nama" value="{{$kop->nama}}">
+											    		{!! "<div id=\"alert\">".$errors->first('nama')."</div>" !!}</span>
 											    </div>
 										    	<div>
 											    	<span>Jenis Koperasi</span>
@@ -116,21 +128,24 @@
 											    </div>
 											    <div>
 											    	<span>Alamat</span>
-											    	<span><input type="username" class="form-control" name="alamat" value="{{$kop->alamat}}"></span>
+											    	<span><input type="text" class="form-control" name="alamat" value="{{$kop->alamat}}">
+											    	{!! "<div id=\"alert\">".$errors->first('alamat')."</div>" !!}</span>
 											    </div>
 											    <div>
 											    	<span>Nomor Telepon</span>
-											    	<span><input type="username" class="form-control" name="no_telepon" value="{{$kop->no_telepon}}"></span>
+											    	<span><input type="text" class="form-control" name="no_telepon" value="{{$kop->no_telepon}}">
+											    		{!! "<div id=\"alert\">".$errors->first('no_telepon')."</div>" !!}</span>
 											    </div>
 											    <div>
 											    	<span>Deskripsi Koperasi</span>
-											    	<span><input type="username" class="form-control" name="deskripsi" value="{{$kop->deskripsi}}"></span>
+											    	<span><input type="text" class="form-control" name="deskripsi" value="{{$kop->deskripsi}}">
+											    		{!! "<div id=\"alert\">".$errors->first('deskripsi')."</div>" !!}</span>
 											    </div>
 											    
 											    <div>
 											   		<span><input type="submit" value="Ubah Data"></span>
 											    </div>
-										    </form>
+										    {!! Form::close() !!}
 									    </div>
 					  				</div>		
 					  				<div class="clearfix"></div>		

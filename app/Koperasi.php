@@ -1,10 +1,11 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Koperasi extends Model {
 
-	protected $fillable = ['nama', 'jenis_koperasi', 'tgl_pembuatan', 'id_pendiri', 'alamat', 'deskripsi', 'no_telepon', 'penilaian'];
+	protected $fillable = ['nama', 'jenis_koperasi', 'id_pendiri', 'alamat', 'deskripsi', 'no_telepon'];
 	public $timestamps = false;
 
 	public static function showKoperasi()
@@ -17,7 +18,6 @@ class Koperasi extends Model {
 		$koperasi = Koperasi::create(array( 'id_pendiri'=> $id_pendiri,
 											'nama' => $nama,
 											'jenis_koperasi' => $jenis, 
-											'tgl_pembuatan' => new DateTime(),
 											'alamat' => $alamat,
 											'no_telepon' => $no_telepon,
 											'deskripsi' => $deskripsi,
@@ -27,7 +27,7 @@ class Koperasi extends Model {
 
 	public static function editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi)
 	{
-		$koperasi = Koperasi::where('id_koperasi', $id)->first();
+		$koperasi = Koperasi::find($id);
         $koperasi->nama = $nama;
         $koperasi->jenis_koperasi = $jenis;
         $koperasi->alamat = $alamat;
@@ -38,7 +38,7 @@ class Koperasi extends Model {
 
 	public static function deleteKoperasi($id)
 	{
-		$koperasi=Koperasi::find($id)->first();
+		$koperasi=Koperasi::find($id);
         $koperasi->delete();
 	}
 

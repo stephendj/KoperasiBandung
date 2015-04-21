@@ -11,7 +11,7 @@ class CreateKoperasiRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,12 @@ class CreateKoperasiRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'id_pendiri'		=> 'required',
+		    'nama' 				=> 'required|unique:koperasis,nama',
+		    'jenis_koperasi'	=> 'required',
+		    'alamat'			=> 'required',
+		    'no_telepon' 		=> 'required',
+		    'deskripsi'   		=> 'required'
 		];
 	}
 

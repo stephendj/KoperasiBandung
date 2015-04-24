@@ -6,15 +6,15 @@
 		<div class="row contact"><!-- start contact -->				
 				<div class="col-md-6">
 				<div class="company_ad audit">
-				     	<h2>Contoh Laporan Audit:</h2>
+				     	<h2>Kriteria Penilaian :</h2>
       					<img src="images/det_pic.jpg">
-						 <p>1. Bla bla bla bla</p>
-						 <p>2. Bla bla bla bla</p>
-						 <p>3. Bla bla bla bla</p>
-						 <p>4. Bla bla bla bla</p>
-						 <p>5. Bla bla bla bla</p>
-						 <p>6. Bla bla bla bla</p>
-						 <p>7. Bla bla bla bla</p>
+						 <p>1. Permodalan</p>
+						 <p>2. Kualitas Aktiva Produktif</p>
+						 <p>3. Manajemen</p>
+						 <p>4. Efisiensi</p>
+						 <p>5. Likuiditas</p>
+						 <p>6. Kemandirian dan Pertumbuhan </p>
+						 <p>7. Jatidiri Koperasi</p>
 				   	
 			   	</div>
 				</div>				
@@ -26,10 +26,9 @@
 						    	<span>Pilih Koperasi</span>
 						    	<span>
 						    		<select class="audit-form">
-									  <option value="volvo">Biasa</option>
-									  <option value="saab">Simpan Pinjam</option>
-									  <option value="mercedes">Blabla</option>
-									  <option value="audi">Lain Lain</option>
+						    			@foreach($koperasi as $kop)
+									  <option value="{!! $kop->nama !!}">{!! $kop->nama !!}</option>
+									  @endforeach
 									</select>
 						    	</span>
 						    </div>

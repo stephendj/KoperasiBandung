@@ -4,15 +4,25 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Koperasi;
+use App\Laporan;
 
 class LaporanController extends Controller {
 
 	public function showLaporan()
 	{
-		$laporan=Laporan::showLaporan();
-		return view('daftar-laporan', compact('laporan'));
+		$koperasi = Koperasi::showKoperasi();
+		return view('unggah-audit', compact('koperasi'));
 	}
-	
+
+	public function showLaporanAdmin()
+	{
+		$koperasi = Koperasi::showKoperasi();
+		$laporan = Laporan::showLaporan();
+		return view('cek-audit', compact('koperasi'),compact('laporan'));
+	}
+
+
 	public function addLaporan()
 	{
 		// Memvalidasi Input

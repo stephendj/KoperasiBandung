@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Koperasi;
 use App\Laporan;
+use App\Http\Requests\CreateLaporanRequest;
+use App\Http\Requests\EditLaporanRequest;
 
 class LaporanController extends Controller {
 
@@ -17,78 +19,43 @@ class LaporanController extends Controller {
 
 	public function showLaporanAdmin()
 	{
-		$koperasi = Koperasi::showKoperasi();
-		$laporan = Laporan::showLaporan();
+		$koperasi = Koperasi::showKoperasi(); 
+		$laporan = Laporan::leftJoin('koperasis',function($join){
+			$join->on('laporans.id_koperasi','=','koperasis.id');
+		})
+		->where ('laporans.terverifikasi','=','0')
+		->get();
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}
 
-	public function addLaporan()
+	public function addLaporan(CreateLaporanRequest $request)
 	{
-		// Memvalidasi Input
-		$rules = array(
-			'ID_Number'			=> 'required',
-		    'id_koperasi'		=> 'required',
-		    'id_pengirim'		=> 'required',
-		    'file' 				=> 'required',
-			);
-		// run the validation rules on the inputs from the form
-		$validator = Validator::make(Input::all(), $rules);
+		$r = $request->all();
+		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file']);
 
-		// if the validator fails, redirect back to the form
-		if ($validator->fails()) {
-				return redirect()->back()
-		        ->withErrors($validator) // send back all errors to the login form
-		        ->withInput()
-		        ->with('message', 'Laporan baru tidak berhasil ditambahkan');
-		} else {
-			$id_pendiri=Input::get('ID_Number');
-			$id_koperasi=Input::get('id_koperasi');
-			$id_pengirim=Input::get('id_pengirim');
-			$file=Input::get('file');
+		return redirect()->back()->with('message', 'Laporan berhasil ditambahkan');
+		
+	}
 
-			Laporan::createLaporan($id_koperasi, $id_pengirim, $file);
-			return redirect()->back()
-	        	->with('message','Laporan berhasil dikirimkan');
-		}
+	public function insertNilai(EditLaporanRequest $request,$id){
+
+		$r = $request->all();
+		Laporan::editLaporan($r['permodalan'], $r['kualitas_aktiva_produktif'], $r['manajemen'], $r['efisiensi'], $r['likuiditas'], $r['kemandirian_dan_pertumbuhan'], $r['jatidiri_koperasi'], $id);
+
+		// $laporan = Laporan::find($id);
+  //       $laporan->permodalan = $r['permodalan'];
+  //       $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
+  //       $laporan->manajemen = $manajemen;
+  //       $laporan->efisiensi = $efisiensi;
+  //       $laporan->likuiditas = $likuiditas;
+  //       $laporan->kemandirian_dan_pertumbuhan = $kemandirian_dan_pertumbuhan;
+  //       $laporan->jatidiri_koperasi = $jatidiri_koperasi;
+  //       $laporan->save();
+
+		return redirect()->back()->with('message', 'Nilai laporan berhasil ditambahkan');
 
 	}
 
-	public function editLaporan()
-	{
-		// Memvalidasi Input
-		$rules = array(
-		    'id_koperasi' 		=> 'required',
-		    'id_pengirim' 		=> 'required',
-		    'file'				=> 'required',
-		);
-		// run the validation rules on the inputs from the form
-		$validator = Validator::make(Input::all(), $rules);
-
-		// if the validator fails, redirect back to the form
-		if ($validator->fails()) {
-		    return redirect()->to('admin/koperasi')
-		        ->withErrors($validator) // send back all errors to the login form
-		        ->withInput()
-		        ->with('message', 'Koperasi tidak berhasil diubah');
-		} else {
-			$id=Input::get('id');
-			$id_pendiri=Input::get('ID_Number');
-			$nama=Input::get('Name');
-			$jenis=Input::get('jenis_koperasi');
-			$alamat=Input::get('Address');
-			$no_telepon=Input::get('Telephone_Number');
-			$deskripsi=Input::get('Description');
-			Koperasi::editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi);
-			return redirect()->to('admin/koperasi');
-		}
-	}
-
-	public function deleteLaporan($id)
-	{
-		Laporan::deleteLaporan($id);
-		return redirect()->back()
-			->with('message', 'Laporan berhasil dihapus');
-	}
 
 	// /**
 	//  * Display a listing of the resource.

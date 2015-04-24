@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CreateLaporanRequest extends Request {
+class EditLaporanRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -23,9 +23,14 @@ class CreateLaporanRequest extends Request {
 	{
 		return [
 			//
-			'id_koperasi'		=> 'required',
-		    'id_pengirim' 		=> 'required',
-		    'file'				=> 'required|max:2048|mimes:zip,rar'
+			'permodalan'					=> 'required',
+		    'kualitas_aktiva_produktif' 	=> 'required',
+		    'manajemen'						=> 'required',
+		    'efisiensi'						=> 'required',
+		    'likuiditas' 					=> 'required',
+		    'kemandirian_dan_pertumbuhan'	=> 'required',
+		    'jatidiri_koperasi'				=> 'required'
+
 		];
 	}
 

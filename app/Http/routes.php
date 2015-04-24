@@ -25,6 +25,7 @@ Route::group(array('prefix' => '/'), function()
     Route::get('tanya', array('uses' => 'PertanyaanController@showPertanyaan'));
 
     Route::get('audit', array('uses' => 'LaporanController@showLaporan'));
+    Route::post('laporansend',array('uses' => 'LaporanController@addLaporan'));
     
     
 });
@@ -43,7 +44,8 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::post('koperasi/edit/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@editKoperasi'));
     Route::get('koperasi/delete/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@deleteKoperasi'));
     
-    Route::get('audit', array('uses' => 'LaporanController@showLaporanAdmin'));    
+    Route::get('audit', array('uses' => 'LaporanController@showLaporanAdmin'));
+    Route::post('audit/editnilai/{id}',array('uses' => 'LaporanController@insertNilai'));    
 
     Route::get('jawab', array('uses' => 'PertanyaanController@showPertanyaanAdmin'));
     Route::get('deletePertanyaan/{id}', 'PertanyaanController@deletePertanyaan');

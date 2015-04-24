@@ -22,7 +22,6 @@ class LaporanController extends Controller {
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}
 
-
 	public function addLaporan()
 	{
 		// Memvalidasi Input

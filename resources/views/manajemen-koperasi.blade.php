@@ -41,7 +41,7 @@
 															<option value="Produksi">Produksi</option>
 										    				<option value="Konsumsi">Konsumsi</option>
 															<option value="Simpan Pinjam">Simpan Pinjam</option>
-															<option value="Dagang">Dagang</option>
+															<option value="Dagang">Serba Usaha</option>
 														</select>
 											    	</span>
 											    </div>

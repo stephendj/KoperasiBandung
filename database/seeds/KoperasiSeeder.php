@@ -21,7 +21,7 @@ class KoperasiSeeder extends Seeder
         Koperasi::create(array(
             'id' => NULL,
             'nama' => 'Koperasi Kasih Sejati',
-            'jenis_koperasi' => 'Dagang',
+            'jenis_koperasi' => 'Produksi',
             'id_pendiri' => '14553257',
             'alamat' => 'Jln. Cisitu VII no 16',
             'deskripsi' => 'Koperasi ini didirikan dengan kasih.',
@@ -51,12 +51,22 @@ class KoperasiSeeder extends Seeder
         Koperasi::create(array(
             'id' => NULL,
             'nama' => 'Koperasi Maju Terus',
-            'jenis_koperasi' => 'Simpan Pinjam',
+            'jenis_koperasi' => 'Konsumsi',
             'id_pendiri' => '1624667',
             'alamat' => 'Baltos no 55',
             'deskripsi' => 'Koperasi ini agar menjadi sumber untuk semua orang.',
             'no_telepon' => '(022) 5566190',
             'penilaian' => '8.5'
+        ));
+        Koperasi::create(array(
+            'id' => NULL,
+            'nama' => 'Koperasi Ayo Bangkit',
+            'jenis_koperasi' => 'Serba Usaha',
+            'id_pendiri' => '162232',
+            'alamat' => 'Cengkirang no 55',
+            'deskripsi' => 'Koperasi ini agar membangkitkan semangat semua orang.',
+            'no_telepon' => '(022) 55224190',
+            'penilaian' => '9.5'
         ));
       
 	}

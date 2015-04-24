@@ -14,6 +14,7 @@
 Route::group(array('prefix' => '/'), function()
 {
 	Route::get('/', 'KoperasiController@showKoperasi');
+    Route::post('cari-koperasi', 'KoperasiController@searchKoperasi');
     
     Route::get('ajukan-bentuk', array('uses' => 'AjuanController@showAjuanBentuk'));
     Route::get('ajukan-bubar', array('uses' => 'AjuanController@showAjuanBubar'));

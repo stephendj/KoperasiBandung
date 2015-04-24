@@ -33,19 +33,20 @@
 			<div class="col-md-4 blog_right">
 				<h2>Cari Koperasi</h2>
 				<div class="news_letter carikoperasi">
-
-						<form>
-							<input type="text" placeholder="nama koperasi">
+						{!! Form::open(array('url'=>'cari-koperasi', 'method'=>'POST')) !!}
+							{!! Form::text('nama', '',array('class' => 'form-control')) !!}
 							<input type="submit" value="cari">
-						</form>
+						{!! Form::close() !!}
 				</div>
 				<h2>Jenis Koperasi</h2>
-				<h4>1. Koperasi X</h4>
-				<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur ipsum, est voluptatem distinctio consequatur doloremque! Dolore quia inventore, minima repellat fugit quod accusantium natus sed modi tempora earum voluptate praesentium! </p>
-				<h4>2. Koperasi Y</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt inventore quos non earum laborum tempore libero doloribus quisquam, sed iste amet odio, fugiat nam id, laudantium adipisci voluptatibus tenetur ex. </p>
-				<h4>3. Koperasi Z</h4>
-				<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque perferendis laudantium hic deleniti, eos dolorem tempore recusandae inventore non blanditiis facilis fugit id nihil ullam alias reprehenderit dolore temporibus officia. </p>
+				<h4>1. Koperasi Produksi</h4>
+				<p> Koperasi Produksi melakukan usaha produksi atau menghasilkan barang. Barang-barang yang dijual di koperasi adalah hasil produksi anggota koperasi. </p>
+				<h4>2. Koperasi Konsumsi</h4>
+				<p>Koperasi Konsumsi menyediakan semua kebutuhan para anggota dalam bentuk barang antara lain berupa:bahan makanan, pakaian, alat tulis atau peralatan rumah tangga. </p>
+				<h4>3. Koperasi Simpan Pinjam</h4>
+				<p> Koperasi Simpan Pinjam melayani para anggotanya untuk menabung dengan mendapatkan imbalan. Bagi anggota yang memerlukan dana dapat meminjam dengan memberikan jasa kepada koperasi. </p>
+				<h4>4. Koperasi Serba Usaha</h4>
+				<p> Koperasi Serba Usaha (KSU) terdiri atas berbagai jenis usaha.Seperti menjual kebutuhan pokok dan barang-barang hasil produksi anggota, melayani simpan. </p>
 				
 			</div>
 			<div class="clearfix"></div>

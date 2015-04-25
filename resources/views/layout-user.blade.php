@@ -48,8 +48,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
-		        @if(Request::is('/'))
-		        	<li class="active"><a href="{!!URL::to('/')!!}">Koperasi</a></li>
+		        @if(Request::is('/') || Request::is('cari-koperasi'))
+		        	<li class="active"><a href="{!!URL::to('/')!!}">Daftar Koperasi</a></li>
 		        @else
 		      		<li><a href="{!!URL::to('/')!!}">Koperasi</a></li>
 		      	@endif
@@ -86,7 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Home</a></li>
 		  <li class="active">
-		  		@if(Request::is('/'))
+		  		@if(Request::is('/') || Request::is('cari-koperasi'))
 		        	Daftar Koperasi
 		      	@endif
 		        @if(Request::is('tanya'))

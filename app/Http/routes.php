@@ -14,6 +14,7 @@
 Route::group(array('prefix' => '/'), function()
 {
 	Route::get('/', 'KoperasiController@showKoperasi');
+    Route::post('cari-koperasi', 'KoperasiController@searchKoperasi');
     
     Route::get('ajukan-bentuk', array('uses' => 'AjuanController@showAjuanBentuk'));
     Route::get('ajukan-bubar', array('uses' => 'AjuanController@showAjuanBubar'));
@@ -25,10 +26,9 @@ Route::group(array('prefix' => '/'), function()
 
     Route::get('daftar-ajuan', array('uses' => 'AjuanController@showAjuanUser'));
 
-    Route::get('audit', function() {
-    	return View::make('unggah-audit');
-    });
-    
+    Route::get('audit', array('uses' => 'LaporanController@showLaporan'));
+    Route::post('laporansend',array('uses' => 'LaporanController@addLaporan'));
+      
 });
 
 Route::group(array('prefix' => 'admin'), function() {
@@ -48,10 +48,8 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::post('koperasi/edit/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@editKoperasi'));
     Route::get('koperasi/delete/{id}', array('middleware' => 'auth', 'uses' => 'KoperasiController@deleteKoperasi'));
     
-    Route::get('audit', function() {
-    	return View::make('cek-audit');
-    });
-
+    Route::get('audit', array('uses' => 'LaporanController@showLaporanAdmin'));
+    Route::post('audit/editnilai/{id}',array('uses' => 'LaporanController@insertNilai'));    
 
     Route::get('jawab', array('uses' => 'PertanyaanController@showPertanyaanAdmin'));
     Route::get('deletePertanyaan/{id}', 'PertanyaanController@deletePertanyaan');

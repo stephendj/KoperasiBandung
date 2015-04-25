@@ -16,6 +16,12 @@ class KoperasiController extends Controller {
 		return view('daftar-koperasi', compact('koperasi'));
 	}
 
+	public function searchKoperasi(Request $request)
+	{
+		$koperasi = Koperasi::searchKoperasi($request['nama']);
+		return view('daftar-koperasi', compact('koperasi'));
+	}
+
 	public function showAdminKoperasi()
 	{
 		$koperasi = Koperasi::showKoperasi();

@@ -20,11 +20,17 @@ class Laporan extends Model {
 
 	}
 
-	public static function editLaporan($id, $id_pengirim, $file)
+	public static function editLaporan($permodalan, $kualitas_aktiva_produktif, $manajemen,$efisiensi,$likuiditas,$kemandirian_dan_pertumbuhan,$jatidiri_koperasi, $id)
 	{
 		$laporan = Laporan::find($id);
-        $laporan->id_pengirim = $id_pengirim;
-        $laporan->file = $file;
+        $laporan->permodalan = $permodalan;
+        $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
+        $laporan->manajemen = $manajemen;
+        $laporan->efisiensi = $efisiensi;
+        $laporan->likuiditas = $likuiditas;
+        $laporan->kemandirian_dan_pertumbuhan = $kemandirian_dan_pertumbuhan;
+        $laporan->jatidiri_koperasi = $jatidiri_koperasi;
+        $laporan->terverifikasi = 1;
         $laporan->save();
 	}
 }

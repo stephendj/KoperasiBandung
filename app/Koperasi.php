@@ -25,6 +25,13 @@ class Koperasi extends Model {
 
 	}
 
+	public static function searchKoperasi($nama_koperasi)
+	{
+		$koperasi = Koperasi::where('nama','like', '%'.$nama_koperasi.'%')->get();
+		return $koperasi;
+
+	}
+
 	public static function editKoperasi($id, $nama, $jenis, $alamat, $no_telepon, $deskripsi)
 	{
 		$koperasi = Koperasi::find($id);

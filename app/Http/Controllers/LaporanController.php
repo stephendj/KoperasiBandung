@@ -30,7 +30,10 @@ class LaporanController extends Controller {
 
 	public function addLaporan(CreateLaporanRequest $request)
 	{
-		$r = $request->all();
+		$request->file('file')->move(public_path('upload/audit'), $request->file('file')->getClientOriginalName());
+		$r = $request->except('file');
+		$r['file'] = $request->file('file')->getClientOriginalName();
+
 		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file']);
 
 		return redirect()->back()->with('message', 'Laporan berhasil ditambahkan');
@@ -41,16 +44,6 @@ class LaporanController extends Controller {
 
 		$r = $request->all();
 		Laporan::editLaporan($r['permodalan'], $r['kualitas_aktiva_produktif'], $r['manajemen'], $r['efisiensi'], $r['likuiditas'], $r['kemandirian_dan_pertumbuhan'], $r['jatidiri_koperasi'], $id);
-
-		// $laporan = Laporan::find($id);
-  //       $laporan->permodalan = $r['permodalan'];
-  //       $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
-  //       $laporan->manajemen = $manajemen;
-  //       $laporan->efisiensi = $efisiensi;
-  //       $laporan->likuiditas = $likuiditas;
-  //       $laporan->kemandirian_dan_pertumbuhan = $kemandirian_dan_pertumbuhan;
-  //       $laporan->jatidiri_koperasi = $jatidiri_koperasi;
-  //       $laporan->save();
 
 		return redirect()->back()->with('message', 'Nilai laporan berhasil ditambahkan');
 

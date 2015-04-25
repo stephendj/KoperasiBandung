@@ -48,24 +48,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
 		        @if(Request::is('admin/koperasi'))
-		        	<li class="active"><a href="koperasi">Manajemen Koperasi</a></li>
+		        	<li class="active"><a href="{!!url('admin/koperasi')!!}">Manajemen Koperasi</a></li>
 		        @else
-		        	<li><a href="koperasi">Manajemen Koperasi</a></li>
+		        	<li><a href="{!!url('admin/koperasi')!!}">Manajemen Koperasi</a></li>
 		        @endif
 		        @if(Request::is('admin/ajuan') || Request::is('admin/ajuan/tambah-koperasi'))
-		     		<li class="active"><a href="ajuan">Manajemen Ajuan</a></li>
+		     		<li class="active"><a href="{!!url('admin/ajuan')!!}">Manajemen Ajuan</a></li>
 		     	@else
-		        	<li><a href="ajuan">Manajemen Ajuan</a></li>
+		        	<li><a href="{!!url('admin/ajuan')!!}">Manajemen Ajuan</a></li>
 		        @endif
 		        @if(Request::is('admin/jawab'))
-		        	<li class="active"><a href="jawab">Jawab Pertanyaan</a></li>
+		        	<li class="active"><a href="{!!url('admin/jawab')!!}">Jawab Pertanyaan</a></li>
 		        @else
-		        	<li><a href="jawab">Jawab Pertanyaan</a></li>
+		        	<li><a href="{!!url('admin/jawab')!!}">Jawab Pertanyaan</a></li>
 		        @endif
 		        @if(Request::is('admin/audit'))
-		        	<li class="active"><a href="audit">Laporan Audit</a></li>
+		        	<li class="active"><a href="{!!url('admin/audit')!!}">Laporan Audit</a></li>
 		        @else
-		        	<li><a href="audit">Laporan Audit</a></li>
+		        	<li><a href="{!!url('admin/audit')!!}">Laporan Audit</a></li>
 		      	@endif
 		      </ul>
 		    </div><!-- /.navbar-collapse -->

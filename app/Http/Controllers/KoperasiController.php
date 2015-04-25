@@ -22,13 +22,31 @@ class KoperasiController extends Controller {
 		return view('manajemen-koperasi', compact('koperasi'));
 	}
 
-	
+	public function showAjuanKoperasi()
+	{	
+		return view('tambah-koperasi')->with('id_pendiri', session('id_pendiri'))->with('nama', session('nama'))->with('jenis_koperasi', session('jenis_koperasi'));
+	}
+
 	public function addKoperasi(CreateKoperasiRequest $request)
 	{
 		$r = $request->all();
 		Koperasi::createKoperasi($r['id_pendiri'], $r['nama'], $r['jenis_koperasi'], $r['alamat'], $r['no_telepon'], $r['deskripsi']);
 		
 		return redirect('admin/koperasi')->with('message', 'Koperasi berhasil ditambahkan');
+	}
+
+	public function doAjuanKoperasi(CreateKoperasiRequest $request) {
+		$r = $request->all();
+		Koperasi::createKoperasi($r['id_pendiri'], $r['nama'], $r['jenis_koperasi'], $r['alamat'], $r['no_telepon'], $r['deskripsi']);
+		
+		return redirect('admin/ajuan')->with('message', 'Koperasi berhasil ditambahkan');
+	}
+
+	public function doAjuanBubar() {
+		$id = Koperasi::findIdByNama(session('nama'));
+
+		Koperasi::deleteKoperasi($id);
+		return  redirect('admin/ajuan')->with('message', 'Koperasi berhasil dibubarkan');
 	}
 
 	public function editKoperasi(CreateKoperasiRequest $request, $id)

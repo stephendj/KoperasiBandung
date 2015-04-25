@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        @else
 		        	<li><a href="koperasi">Manajemen Koperasi</a></li>
 		        @endif
-		        @if(Request::is('admin/ajuan'))
+		        @if(Request::is('admin/ajuan') || Request::is('admin/ajuan/tambah-koperasi'))
 		     		<li class="active"><a href="ajuan">Manajemen Ajuan</a></li>
 		     	@else
 		        	<li><a href="ajuan">Manajemen Ajuan</a></li>
@@ -78,7 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				@if(Request::is('admin/koperasi'))
 		        	Manajemen Koperasi
 		        @endif
-		        @if(Request::is('admin/ajuan'))
+		        @if(Request::is('admin/ajuan') || Request::is('admin/ajuan/tambah-koperasi'))
 		     		Manajemen Ajuan
 		        @endif
 		        @if(Request::is('admin/jawab'))

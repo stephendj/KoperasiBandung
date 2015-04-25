@@ -49,17 +49,18 @@
 													  <div class="contact-form">
 													  	<h2>Data Ajuan</h2>
 														    {!! Form::open(array('url'=>'admin/ajuan/edit/'.$ajuan->id, 'method'=>'POST')) !!}
+														    	<input type="hidden" name="nama" value="{!! $ajuan->nama_koperasi !!}">
 														    	<div>
 															    	<span>Nomor Kartu Tanda Penduduk</span>
-															    	<span><input type="text" class="form-control" id="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Email</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->email !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="email" value="{!! $ajuan->email !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Jenis Koperasi</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="jenis_koperasi" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
 															    </div>
 																  <div>
 																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>
@@ -110,17 +111,18 @@
 													  <div class="contact-form">
 													  	<h2>Data Ajuan</h2>
 														    {!! Form::open(array('url'=>'admin/ajuan/edit/'.$ajuan->id, 'method'=>'POST')) !!}
+														    	<input type="hidden" name="nama" value="{!! $ajuan->nama_koperasi !!}">
 														    	<div>
 															    	<span>Nomor Kartu Tanda Penduduk</span>
-															    	<span><input type="text" class="form-control" id="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Email</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->email !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="email" value="{!! $ajuan->email !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Jenis Koperasi</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="jenis_koperasi" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
 															    </div>
 																  <div>
 																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>
@@ -171,17 +173,18 @@
 													  <div class="contact-form">
 													  	<h2>Data Ajuan</h2>
 														    {!! Form::open(array('url'=>'admin/ajuan/edit/'.$ajuan->id, 'method'=>'POST')) !!}
+														    	<input type="hidden" name="nama" value="{!! $ajuan->nama_koperasi !!}">
 														    	<div>
 															    	<span>Nomor Kartu Tanda Penduduk</span>
-															    	<span><input type="text" class="form-control" id="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="id_pengaju" value="{!! $ajuan->id_pengaju !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Email</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->email !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="email" value="{!! $ajuan->email !!}" readonly></span>
 															    </div>
 															    <div>
 															    	<span>Jenis Koperasi</span>
-															    	<span><input type="text" class="form-control" id="email" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
+															    	<span><input type="text" class="form-control" name="jenis_koperasi" value="{!! $ajuan->jenis_koperasi !!}" readonly></span>
 															    </div>
 																  <div>
 																   		<span><input class="tombol-ajuan" name="action" type="submit" value="Tolak Ajuan"></span>

@@ -332,3 +332,29 @@ h5.paneltabajuan{
 		margin: 15px 0;
 	}
 }
+
+.status-ajuan{
+	width:250px;
+	margin-top:5px;
+	margin-left: 3%;
+	font-family: 'Open Sans', 'sans-serif';
+	-webkit-appearance: none;
+	float: right;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 1.7em;
+	color: #000000;
+	background: #ffffff;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+}

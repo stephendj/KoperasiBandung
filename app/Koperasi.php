@@ -38,6 +38,11 @@ class Koperasi extends Model {
 
 	public static function deleteKoperasi($id)
 	{
+		$laporans = Laporan::where('id_koperasi', $id)->get();
+		foreach($laporans as $laporan) {
+			$laporan->delete();
+		}
+
 		$koperasi=Koperasi::find($id);
         $koperasi->delete();
 	}
@@ -46,5 +51,10 @@ class Koperasi extends Model {
 	{
 		$koperasi = Koperasi::where('nama', $nama_koperasi)->first();
 		return $koperasi->jenis_koperasi;
+	}
+
+	public static function findIdByNama($nama) {
+		$koperasi = Koperasi::where('nama', $nama)->first();
+		return $koperasi->id;
 	}
 }

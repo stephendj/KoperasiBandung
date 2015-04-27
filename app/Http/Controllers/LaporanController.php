@@ -24,6 +24,7 @@ class LaporanController extends Controller {
 			$join->on('laporans.id_koperasi','=','koperasis.id');
 		})
 		->where ('laporans.terverifikasi','=','0')
+		->select('laporans.*', 'koperasis.nama')
 		->get();
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}
@@ -34,7 +35,7 @@ class LaporanController extends Controller {
 		$r = $request->except('file');
 		$r['file'] = $request->file('file')->getClientOriginalName();
 
-		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file']);
+		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file'],$r['tahun']);
 
 		return redirect()->back()->with('message', 'Laporan berhasil ditambahkan');
 		
@@ -44,7 +45,21 @@ class LaporanController extends Controller {
 
 		$r = $request->all();
 		Laporan::editLaporan($r['permodalan'], $r['kualitas_aktiva_produktif'], $r['manajemen'], $r['efisiensi'], $r['likuiditas'], $r['kemandirian_dan_pertumbuhan'], $r['jatidiri_koperasi'], $id);
-
+		$searchlap = Laporan::find($id);
+		$searchlap -> terverifikasi = 1;
+		$searchlap -> save();
+		$search = Koperasi::find($searchlap->id_koperasi);
+		$search->penilaian = $r['permodalan']+ $r['kualitas_aktiva_produktif'] + $r['manajemen'] + $r['efisiensi'] + $r['likuiditas'] + $r['kemandirian_dan_pertumbuhan'] + $r['jatidiri_koperasi'] ;;
+		$search -> save(); 
+		// $laporan = Laporan::find($id);
+  //       $laporan->permodalan = $r['permodalan'];
+  //       $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
+  //       $laporan->manajemen = $manajemen;
+  //       $laporan->efisiensi = $efisiensi;
+  //       $laporan->likuiditas = $likuiditas;
+  //       $laporan->kemandirian_dan_pertumbuhan = $kemandirian_dan_pertumbuhan;
+  //       $laporan->jatidiri_koperasi = $jatidiri_koperasi;
+  //       $laporan->save();
 		return redirect()->back()->with('message', 'Nilai laporan berhasil ditambahkan');
 
 	}

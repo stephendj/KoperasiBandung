@@ -16,7 +16,7 @@ class KoperasiSeeder extends Seeder
     		'alamat' => 'Jln. Dago VI no 6',
             'deskripsi' => 'Koperasi ini didirikan atas inisiatif warga sekitar.',
             'no_telepon' => '(022) 62355790',
-            'penilaian' => '-'
+            'penilaian' => '7'
 	    ));
         Koperasi::create(array(
             'id' => NULL,
@@ -26,7 +26,7 @@ class KoperasiSeeder extends Seeder
             'alamat' => 'Jln. Cisitu VII no 16',
             'deskripsi' => 'Koperasi ini didirikan dengan kasih.',
             'no_telepon' => '(022) 6618822',
-            'penilaian' => '8'
+            'penilaian' => '-'
         ));
         Koperasi::create(array(
             'id' => NULL,
@@ -36,7 +36,7 @@ class KoperasiSeeder extends Seeder
             'alamat' => 'Jln. Tubagus Dalam no 2',
             'deskripsi' => 'Koperasi ini bertujuan agar makmur.',
             'no_telepon' => '(022) 6622551',
-            'penilaian' => '10'
+            'penilaian' => '-'
         ));
         Koperasi::create(array(
             'id' => NULL,
@@ -56,7 +56,7 @@ class KoperasiSeeder extends Seeder
             'alamat' => 'Baltos no 55',
             'deskripsi' => 'Koperasi ini agar menjadi sumber untuk semua orang.',
             'no_telepon' => '(022) 5566190',
-            'penilaian' => '8.5'
+            'penilaian' => '-'
         ));
         Koperasi::create(array(
             'id' => NULL,
@@ -66,7 +66,7 @@ class KoperasiSeeder extends Seeder
             'alamat' => 'Cengkirang no 55',
             'deskripsi' => 'Koperasi ini agar membangkitkan semangat semua orang.',
             'no_telepon' => '(022) 55224190',
-            'penilaian' => '9.5'
+            'penilaian' => '-'
         ));
       
 	}

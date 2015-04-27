@@ -69,6 +69,7 @@ class KoperasiController extends Controller {
 		return redirect('admin/koperasi')->with('message', 'Koperasi berhasil dihapus');
 	}
 
+
 	// /**
 	//  * Display a listing of the resource.
 	//  *

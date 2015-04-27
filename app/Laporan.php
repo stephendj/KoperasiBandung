@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Laporan extends Model {
 
-	protected $fillable = ['id_koperasi', 'id_pengirim', 'file'];
+	protected $fillable = ['id_koperasi', 'id_pengirim', 'file','tahun'];
 	public $timestamps = false;
 
 	public static function showLaporan()
@@ -12,17 +12,19 @@ class Laporan extends Model {
 		return Laporan::all();
 	}
 
-	public static function createLaporan($id_koperasi, $id_pengirim, $file)
+	public static function createLaporan($id_koperasi, $id_pengirim, $file,$tahun)
 	{
 		$laporan = Laporan::create(array( 'id_koperasi'=> $id_koperasi,
 										  'id_pengirim' => $id_pengirim, 
-										  'file' => $file ));
+										  'file' => $file,
+										  'tahun' => $tahun ));
 
 	}
 
 	public static function editLaporan($permodalan, $kualitas_aktiva_produktif, $manajemen,$efisiensi,$likuiditas,$kemandirian_dan_pertumbuhan,$jatidiri_koperasi, $id)
 	{
 		$laporan = Laporan::find($id);
+
         $laporan->permodalan = $permodalan;
         $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
         $laporan->manajemen = $manajemen;

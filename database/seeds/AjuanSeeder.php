@@ -13,7 +13,7 @@ class AjuanSeeder extends Seeder
         	'id_staff' => NULL,
             'nama_koperasi' => 'Koperasi Jaya Makmur',
             'jenis_ajuan' => 'Pembentukan',
-            'jenis_koperasi' => 'Biasa',
+            'jenis_koperasi' => 'Konsumsi',
             'status' => 'Sedang Diproses',
             'id_pengaju' => '123238212',
             'email' => 'stephendjohan@gmail.com',
@@ -33,7 +33,7 @@ class AjuanSeeder extends Seeder
         Ajuan::create(array(
             'id' => NULL,
             'id_staff' => NULL,
-            'nama_koperasi' => 'Koperasi Adil Seksama',
+            'nama_koperasi' => 'Koperasi Sumber Jaya',
             'jenis_ajuan' => 'Pembubaran',
             'jenis_koperasi' => 'Simpan Pinjam',
             'status' => 'Sedang Diproses',

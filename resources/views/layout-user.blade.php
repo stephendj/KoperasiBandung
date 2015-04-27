@@ -49,29 +49,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
 		        @if(Request::is('/') || Request::is('cari-koperasi'))
-		        	<li class="active"><a href="{!!URL::to('/')!!}">Daftar Koperasi</a></li>
+		        	<li class="active"><a href="{!!URL::to('/')!!}">Koperasi</a></li>
 		        @else
-		      		<li><a href="{!!URL::to('/')!!}">Daftar Koperasi</a></li>
+		      		<li><a href="{!!URL::to('/')!!}">Koperasi</a></li>
 		      	@endif
 		        @if(Request::is('tanya'))
-		        	<li class="active"><a href="tanya">Pertanyaan</a></li>
+		        	<li class="active"><a href="{!!url('tanya')!!}">Pertanyaan</a></li>
 		        @else
-		        	<li><a href="tanya">Pertanyaan</a></li>
+		        	<li><a href="{!!url('tanya')!!}">Pertanyaan</a></li>
 		        @endif
 		        @if(Request::is('ajukan-bentuk'))
-		        	<li class="active"><a href="ajukan-bentuk">Pengajuan Pembentukan</a></li>
+		        	<li class="active"><a href="{!!url('ajukan-bentuk')!!}">Ajuan Pembentukan</a></li>
 		        @else
-		        	<li><a href="ajukan-bentuk">Pengajuan Pembentukan</a></li>
+		        	<li><a href="{!!url('ajukan-bentuk')!!}">Ajuan Pembentukan</a></li>
 		        @endif
 		        @if(Request::is('ajukan-bubar'))
-		        	<li class="active"><a href="ajukan-bubar">Pengajuan Pembubaran</a></li>
+		        	<li class="active"><a href="{!!url('ajukan-bubar')!!}">Ajuan Pembubaran</a></li>
 		        @else
-		        	<li><a href="ajukan-bubar">Pengajuan Pembubaran</a></li>
+		        	<li><a href="{!!url('ajukan-bubar')!!}">Ajuan Pembubaran</a></li>
+		        @endif
+		        @if(Request::is('daftar-ajuan'))
+		        	<li class="active"><a href="{!!url('daftar-ajuan')!!}">Daftar Ajuan</a></li>
+		        @else
+		        	<li><a href="{!!url('daftar-ajuan')!!}">Daftar Ajuan</a></li>
 		        @endif
 		        @if(Request::is('audit'))
-		        	<li class="active"><a href="audit">Unggah Audit</a></li>
+		        	<li class="active"><a href="{!!url('audit')!!}">Unggah Audit</a></li>
 		        @else
-		        	<li><a href="audit">Unggah Audit</a></li>
+		        	<li><a href="{!!url('audit')!!}">Unggah Audit</a></li>
 		        @endif
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
@@ -95,6 +100,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        @endif
 		        @if(Request::is('audit'))
 		        	Unggah Audit
+		        @endif
+		        @if(Request::is('daftar-ajuan'))
+		        	Daftar Ajuan
 		        @endif
 		  </li>
 		</ol>

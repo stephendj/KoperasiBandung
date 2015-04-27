@@ -7,7 +7,6 @@
 				<div class="col-md-6">
 				<div class="company_ad audit">
 				     	<h2>Kriteria Penilaian :</h2>
-      					<img src="images/det_pic.jpg">
 						 <p>1. Permodalan</p>
 						 <p>2. Kualitas Aktiva Produktif</p>
 						 <p>3. Manajemen</p>
@@ -21,6 +20,13 @@
 				<div class="col-md-6">
 				  <div class="contact-form">
 				  	<h2>Unggah Audit</h2>
+				  	@if(!is_null(Session::get('message')))
+			    		<br>            
+    					<div class="alert alert-success">
+        					<a href="#" class="close" data-dismiss="alert">&times;</a>
+        					<strong>Sukses!</strong> {!! Session::get('message') !!}
+    					</div>
+			        @endif
 					     {!! Form::open(array('url'=>'laporansend', 'method'=>'POST', 'files'=>true)) !!}
 					    	<div>
 						    	<span>Pilih Koperasi</span>

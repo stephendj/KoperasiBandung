@@ -26,6 +26,14 @@ class AjuanController extends Controller {
 		return view('manajemen-ajuan', compact('ajuanbentuk'), compact('ajuansimpanpinjam'))->with('ajuanbubar', $ajuanbubar);
 	}
 
+	public function showAjuanUser() {
+		$ajuanbentuk = Ajuan::getAjuanBentuk();
+		$ajuanbubar = Ajuan::getAjuanBubar();
+		$ajuansimpanpinjam = Ajuan::getAjuanSimpanPinjam();
+
+		return view('daftar-ajuan', compact('ajuanbentuk'), compact('ajuansimpanpinjam'))->with('ajuanbubar', $ajuanbubar);
+	}
+
 	public function showAjuanBentuk() {
 		return view('pengajuan-pembentukan');
 	}
@@ -36,8 +44,16 @@ class AjuanController extends Controller {
 		return view('pengajuan-pembubaran', compact('daftarkoperasi'));
 	}
 
-	public function changeStatus($id) {
+	public function changeStatus($id, Request $request) {
 		$ajuan = Ajuan::find($id);
+		$ajuanpembentukan = false;
+		$ajuanpembubaran = false;
+
+		if($ajuan->jenis_ajuan == 'Pembentukan') {
+			$ajuanpembentukan = true;
+		} else if($ajuan->jenis_ajuan == 'Pembubaran') {
+			$ajuanpembubaran = true;
+		}
 
 		if(Input::get('action') == 'Tolak Ajuan') {
 			$ajuan->status = 'Ditolak';
@@ -45,8 +61,18 @@ class AjuanController extends Controller {
 			$ajuan->status = 'Diterima';
 		}
 		$ajuan->save();
-		
-		return redirect()->back()->with('message', 'Status ajuan berhasi diubah');
+
+		if($ajuanpembentukan && Input::get('action') == 'Terima Ajuan') {
+			$id_pengaju = Input::get('id_pengaju');
+			$nama = Input::get('nama');
+			$jenis_koperasi = Input::get('jenis_koperasi');
+			return redirect('admin/ajuan/tambah-koperasi')->with('id_pendiri', $id_pengaju)->with('nama', $nama)->with('jenis_koperasi', $jenis_koperasi);
+		} else if($ajuanpembubaran && Input::get('action') == 'Terima Ajuan') {
+			$nama = Input::get('nama');
+			return redirect('admin/ajuan/hapus-koperasi')->with('nama', $nama);
+		} else {
+			return redirect()->back()->with('message', 'Status ajuan berhasi diubah');
+		}
 	}
 
 

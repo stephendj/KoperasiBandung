@@ -15,7 +15,7 @@
 			 				<button class="tombol-audit cek-audit">
 								Cek Input
 							</button>
-							<a href="#" download="laporankoperasi">
+							<a href="{!! asset('upload/ajuan /'.$ajuan->file) !!}" download>
 								<button class="tombol-audit">
 									Unduh Laporan Audit
 								</button>

@@ -41,7 +41,11 @@ class LaporanController extends Controller {
 
 		$r = $request->all();
 		Laporan::editLaporan($r['permodalan'], $r['kualitas_aktiva_produktif'], $r['manajemen'], $r['efisiensi'], $r['likuiditas'], $r['kemandirian_dan_pertumbuhan'], $r['jatidiri_koperasi'], $id);
-
+		$searchlap = Laporan::find($id);
+		$searchlap -> terverifikasi = 1;
+		$search = Koperasi::find($searchlap->id_koperasi);
+		$search->penilaian = $r['permodalan']+ $r['kualitas_aktiva_produktif'] + $r['manajemen'] + $r['efisiensi'] + $r['likuiditas'] + $r['kemandirian_dan_pertumbuhan'] + $r['jatidiri_koperasi'] ;;
+		$search -> save(); 
 		// $laporan = Laporan::find($id);
   //       $laporan->permodalan = $r['permodalan'];
   //       $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;

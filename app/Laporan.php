@@ -23,6 +23,7 @@ class Laporan extends Model {
 	public static function editLaporan($permodalan, $kualitas_aktiva_produktif, $manajemen,$efisiensi,$likuiditas,$kemandirian_dan_pertumbuhan,$jatidiri_koperasi, $id)
 	{
 		$laporan = Laporan::find($id);
+		
         $laporan->permodalan = $permodalan;
         $laporan->kualitas_aktiva_produktif = $kualitas_aktiva_produktif;
         $laporan->manajemen = $manajemen;

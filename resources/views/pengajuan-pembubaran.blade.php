@@ -7,14 +7,13 @@
 				<div class="col-md-4">
 				<div class="company_ad">
 				     	<h2>Syarat Pengajuan Pembubaran Koperasi:</h2>
-      				
-						 <p>1. Bla bla bla bla</p>
-						 <p>2. Bla bla bla bla</p>
-						 <p>3. Bla bla bla bla</p>
-						 <p>4. Bla bla bla bla</p>
-						 <p>5. Bla bla bla bla</p>
-						 <p>6. Bla bla bla bla</p>
-						 <p>7. Bla bla bla bla</p>
+      				<p>Pembubaran Oleh Rapat Anggota </p>
+      				<p>1.Rapat Anggota Khusus Pembubaran Koperasi dengan materi "Memutuskan Pembubaran"</p>
+      				<p>2.Menunjuk tim Penyelesai Pengurus Surat Pemberitahuan ke Dinas Koperasi PK</p><br>
+      				<p> Hasil rapat anggota pembubaran dikirim maksimal 14 hari dilampiri : </p>
+      				<p>	1.Keputusan Rapat Anggota </p>
+      				<p>	2.Daftar Anggota dan daftar Hadir Rapat Berita Acara penyelesaian Pembubaran ( dibuat oleh tim Penyelesai ) </p>
+      				<p>	3.Anggaran Dasar Asli</p>
 				   	
 			   	</div>
 				</div>				

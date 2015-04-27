@@ -24,6 +24,7 @@ class LaporanController extends Controller {
 			$join->on('laporans.id_koperasi','=','koperasis.id');
 		})
 		->where ('laporans.terverifikasi','=','0')
+		->select('laporans.id','laporans.id_koperasi', 'koperasis.nama')
 		->get();
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}
@@ -44,9 +45,9 @@ class LaporanController extends Controller {
 
 		$r = $request->all();
 		Laporan::editLaporan($r['permodalan'], $r['kualitas_aktiva_produktif'], $r['manajemen'], $r['efisiensi'], $r['likuiditas'], $r['kemandirian_dan_pertumbuhan'], $r['jatidiri_koperasi'], $id);
-<<<<<<< HEAD
 		$searchlap = Laporan::find($id);
 		$searchlap -> terverifikasi = 1;
+		$searchlap -> save();
 		$search = Koperasi::find($searchlap->id_koperasi);
 		$search->penilaian = $r['permodalan']+ $r['kualitas_aktiva_produktif'] + $r['manajemen'] + $r['efisiensi'] + $r['likuiditas'] + $r['kemandirian_dan_pertumbuhan'] + $r['jatidiri_koperasi'] ;;
 		$search -> save(); 
@@ -59,9 +60,6 @@ class LaporanController extends Controller {
   //       $laporan->kemandirian_dan_pertumbuhan = $kemandirian_dan_pertumbuhan;
   //       $laporan->jatidiri_koperasi = $jatidiri_koperasi;
   //       $laporan->save();
-=======
->>>>>>> 4edf547e07eb4a5bf7bf9ae1e1519fbc96401d24
-
 		return redirect()->back()->with('message', 'Nilai laporan berhasil ditambahkan');
 
 	}

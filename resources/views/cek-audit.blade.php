@@ -29,31 +29,31 @@
 										    {!! Form::open(array('url'=>'admin/audit/editnilai/'.$lap->id, 'method'=>'POST')) !!}
 											    <div>
 										    	<span>Permodalan</span>
-										    	<span>{!! Form::text('permodalan', Input::old('permodalan'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('permodalan')."</div>" !!}</span>
+										    	<span>{!! Form::text('permodalan', Input::old('permodalan'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 15 ')) !!}<br>{!! "<div id=\"alert\">".$errors->first('permodalan')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Kualitas Aktiva Produktif</span>
-										    	<span>{!! Form::text('kualitas_aktiva_produktif', Input::old('kualitas_aktiva_produktif'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('kualitas_aktiva_produktif')."</div>" !!}</span>
+										    	<span>{!! Form::text('kualitas_aktiva_produktif', Input::old('kualitas_aktiva_produktif'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 25 ')) !!}<br>{!! "<div id=\"alert\">".$errors->first('kualitas_aktiva_produktif')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Manajemen</span>
-										    	<span>{!! Form::text('manajemen', Input::old('manajemen'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('manajemen')."</div>" !!}</span>
+										    	<span>{!! Form::text('manajemen', Input::old('manajemen'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 15 ')) !!}<br>{!! "<div id=\"alert\">".$errors->first('manajemen')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Efisiensi</span>
-										    	<span>{!! Form::text('efisiensi', Input::old('efisiensi'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('efisiensi')."</div>" !!}</span>
+										    	<span>{!! Form::text('efisiensi', Input::old('efisiensi'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 10')) !!}<br>{!! "<div id=\"alert\">".$errors->first('efisiensi')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Likuiditas</span>
-										    	<span>{!! Form::text('likuiditas', Input::old('likuiditas'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('likuiditas')."</div>" !!}</span>
+										    	<span>{!! Form::text('likuiditas', Input::old('likuiditas'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 15')) !!}<br>{!! "<div id=\"alert\">".$errors->first('likuiditas')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Kemandirian dan Pertumbuhan</span>
-										    	<span>{!! Form::text('kemandirian_dan_pertumbuhan', Input::old('kemandirian_dan_pertumbuhan'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('kemandirian_dan_pertumbuhan')."</div>" !!}</span>
+										    	<span>{!! Form::text('kemandirian_dan_pertumbuhan', Input::old('kemandirian_dan_pertumbuhan'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 10')) !!}<br>{!! "<div id=\"alert\">".$errors->first('kemandirian_dan_pertumbuhan')."</div>" !!}</span>
 										  		  </div>
 										  		  <div>
 										    	<span>Jatidiri Koperasi</span>
-										    	<span>{!! Form::text('jatidiri_koperasi', Input::old('jatidiri_koperasi'), array('class' => 'form-control', 'placeholder' => 'cth: 0')) !!}<br>{!! "<div id=\"alert\">".$errors->first('jatidiri_koperasi')."</div>" !!}</span>
+										    	<span>{!! Form::text('jatidiri_koperasi', Input::old('jatidiri_koperasi'), array('class' => 'form-control', 'placeholder' => 'cth: 0 - 10')) !!}<br>{!! "<div id=\"alert\">".$errors->first('jatidiri_koperasi')."</div>" !!}</span>
 										  		  </div>
 											   <div>
 											   		<span><input type="submit" value="Agree"></span>

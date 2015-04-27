@@ -12,7 +12,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('admins', function(Blueprint $table)
+		Schema::create('ppl_koperasi_admins', function(Blueprint $table)
 		{
 			$table->increments('id');
 	        $table->string('username')->unique;
@@ -27,7 +27,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('admins');
+		Schema::drop('ppl_koperasi_admins');
 	}
 
 }

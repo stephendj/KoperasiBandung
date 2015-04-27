@@ -7,7 +7,7 @@ class LaporanSeeder extends Seeder
 {
 	public function run()
 	{
-	    DB::table('laporans')->delete();
+	    DB::table('ppl_koperasi_laporans')->delete();
 	    Laporan::create(array(
             'id' => NULL,
         	'id_koperasi' => 1,

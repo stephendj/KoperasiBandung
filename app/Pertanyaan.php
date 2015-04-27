@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pertanyaan extends Model {
 
+	protected $table = 'ppl_koperasi_pertanyaans';
 	protected $fillable = ['pertanyaan_user', 'nama', 'email'];
 	public $timestamps = false;
 

@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Laporan extends Model {
 
+	protected $table = 'ppl_koperasi_laporans';
 	protected $fillable = ['id_koperasi', 'id_pengirim', 'file','tahun'];
 	public $timestamps = false;
 

@@ -7,7 +7,7 @@ class PertanyaanSeeder extends Seeder
 {
 	public function run()
 	{
-	    DB::table('pertanyaans')->delete();
+	    DB::table('ppl_koperasi_pertanyaans')->delete();
 	    Pertanyaan::create(array(
             'id' => NULL,
         	'id_staff' => NULL,

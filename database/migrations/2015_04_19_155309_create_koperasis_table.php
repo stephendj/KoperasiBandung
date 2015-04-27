@@ -12,7 +12,7 @@ class CreateKoperasisTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('koperasis', function(Blueprint $table)
+		Schema::create('ppl_koperasi_koperasis', function(Blueprint $table)
 		{
 			$table->increments('id');
 	        $table->string('nama')->unique;
@@ -33,7 +33,7 @@ class CreateKoperasisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('koperasis');
+		Schema::drop('ppl_koperasi_koperasis');
 	}
 
 }

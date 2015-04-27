@@ -7,7 +7,7 @@ class AjuanSeeder extends Seeder
 {
 	public function run()
 	{
-	    DB::table('ajuans')->delete();
+	    DB::table('ppl_koperasi_ajuans')->delete();
 	    Ajuan::create(array(
             'id' => NULL,
         	'id_staff' => NULL,

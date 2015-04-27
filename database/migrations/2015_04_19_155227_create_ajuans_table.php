@@ -12,7 +12,7 @@ class CreateAjuansTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ajuans', function(Blueprint $table)
+		Schema::create('ppl_koperasi_ajuans', function(Blueprint $table)
 		{
 			$table->increments('id');
 	        $table->unsignedInteger('id_staff')->nullable();
@@ -24,10 +24,10 @@ class CreateAjuansTable extends Migration {
 	        $table->string('email');
 	        $table->string('file');
 	    });
-	    Schema::table('ajuans', function($table)
+	    Schema::table('ppl_koperasi_ajuans', function($table)
 	    {
 	    	$table->foreign('id_staff')
-				->references('id')->on('admins');
+				->references('id')->on('ppl_koperasi_admins');
 		});
 	}
 
@@ -38,7 +38,7 @@ class CreateAjuansTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ajuans');
+		Schema::drop('ppl_koperasi_ajuans');
 	}
 
 }

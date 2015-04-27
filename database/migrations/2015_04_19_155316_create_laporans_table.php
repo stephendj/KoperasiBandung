@@ -12,7 +12,7 @@ class CreateLaporansTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('laporans', function(Blueprint $table)
+		Schema::create('ppl_koperasi_laporans', function(Blueprint $table)
 		{
 			$table->increments('id');
 	        $table->unsignedInteger('id_koperasi');
@@ -30,10 +30,10 @@ class CreateLaporansTable extends Migration {
 	        $table->unsignedInteger('terverifikasi');
 	    });
 	    
-	    Schema::table('laporans', function($table)
+	    Schema::table('ppl_koperasi_laporans', function($table)
 	    {
 	    	$table->foreign('id_koperasi')
-				->references('id')->on('koperasis');
+				->references('id')->on('ppl_koperasi_koperasis');
 		});
 	}
 
@@ -44,7 +44,7 @@ class CreateLaporansTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('laporans');
+		Schema::drop('ppl_koperasi_laporans');
 	}
 
 }

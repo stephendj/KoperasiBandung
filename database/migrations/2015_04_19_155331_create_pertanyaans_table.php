@@ -12,7 +12,7 @@ class CreatePertanyaansTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pertanyaans', function(Blueprint $table)
+		Schema::create('ppl_koperasi_pertanyaans', function(Blueprint $table)
 		{
 			$table->increments('id');
 	        $table->unsignedInteger('id_staff')->nullable();
@@ -21,10 +21,10 @@ class CreatePertanyaansTable extends Migration {
 	        $table->string('nama');
 	        $table->string('email');
 	    });
-	    Schema::table('pertanyaans', function($table)
+	    Schema::table('ppl_koperasi_pertanyaans', function($table)
 	    {
 	    	$table->foreign('id_staff')
-				->references('id')->on('admins');
+				->references('id')->on('ppl_koperasi_admins');
 		});
 	}
 
@@ -35,7 +35,7 @@ class CreatePertanyaansTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pertanyaans');
+		Schema::drop('ppl_koperasi_pertanyaans');
 	}
 
 }

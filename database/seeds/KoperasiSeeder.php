@@ -7,7 +7,7 @@ class KoperasiSeeder extends Seeder
 {
 	public function run()
 	{
-	    DB::table('koperasis')->delete();
+	    DB::table('ppl_koperasi_koperasis')->delete();
 	    Koperasi::create(array(
 	        'id' => NULL,
     		'nama' => 'Koperasi Sumber Jaya',

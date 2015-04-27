@@ -5,6 +5,7 @@ use Carbon\Carbon;
 
 class Koperasi extends Model {
 
+	protected $table = 'ppl_koperasi_koperasis';
 	protected $fillable = ['nama', 'jenis_koperasi', 'id_pendiri', 'alamat', 'deskripsi', 'no_telepon'];
 	public $timestamps = false;
 

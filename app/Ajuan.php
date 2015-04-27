@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ajuan extends Model {
 
+	protected $table = 'ppl_koperasi_ajuans';
 	protected $fillable = ['nama_koperasi', 'jenis_koperasi', 'id_pengaju', 'email', 'file'];
 	public $timestamps = false;
 

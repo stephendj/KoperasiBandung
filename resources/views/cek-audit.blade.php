@@ -15,13 +15,11 @@
 			 				<button class="tombol-audit cek-audit">
 								Cek Input
 							</button>
-							<a href="{!! asset('upload/ajuan /'.$ajuan->file) !!}" download>
+							<a href="{!! asset('upload/audit/'.$lap->file) !!}" download>
 								<button class="tombol-audit">
 									Unduh Laporan Audit
 								</button>
 							</a>
-
-
 							<div class="clearfix"></div>	
 							<div class="formjawaban">
 								<div class="row contact"><!-- start contact -->		

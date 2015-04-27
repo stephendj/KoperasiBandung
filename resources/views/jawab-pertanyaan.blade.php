@@ -12,12 +12,19 @@
     					<strong>Sukses!</strong> {!! Session::get('message') !!}
 					</div>
 		        @endif
-				@foreach($pertanyaan as $p)
+				@forelse($pertanyaan as $p)
 					<div class="row grids_btm top">
 						<div class="grid_list">
 							<div class="pertanyaan-jawaban">
 							  	<h3>Pertanyaan: </h3>
-								<p>{{ $p->pertanyaan_user }}</p> <button class=" daftarpertanyaan"> jawab </button> <a href="deletePertanyaan/{{$p->id}}"><button class=" hapuspertanyaan"> hapus </button></a>
+								<p>{{ $p->pertanyaan_user }}</p>
+								@if($p->jawaban!==null)
+									 <font size="3" color="green">Sudah Terjawab</font>
+								@endif
+								<button class=" daftarpertanyaan"> jawab </button> 
+								<a href="deletePertanyaan/{{$p->id}}">
+									<button class=" hapuspertanyaan"> hapus </button>
+								</a>
 								<div class="formjawaban">
 									<div class="pertanyaan-form"><br><br><br><br>
 								  	<h4>Jawab Pertanyaan</h4>
@@ -35,7 +42,9 @@
 			 			 	<div class="clearfix"></div>
 						</div>
 					</div>
-				@endforeach
+				@empty
+					<h3><center>Tidak Ada Pertanyaan</center></h3>
+				@endforelse
 			</div>
 	</div><!-- end blog -->
 </div>

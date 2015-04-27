@@ -24,10 +24,11 @@ Route::group(array('prefix' => '/'), function()
     Route::post('bertanya',  array('uses' => 'PertanyaanController@addPertanyaan'));
     Route::get('tanya', array('uses' => 'PertanyaanController@showPertanyaan'));
 
+    Route::get('daftar-ajuan', array('uses' => 'AjuanController@showAjuanUser'));
+
     Route::get('audit', array('uses' => 'LaporanController@showLaporan'));
     Route::post('laporansend',array('uses' => 'LaporanController@addLaporan'));
-    
-    
+      
 });
 
 Route::group(array('prefix' => 'admin'), function() {
@@ -38,6 +39,9 @@ Route::group(array('prefix' => 'admin'), function() {
     Route::get('ajuan', array('middleware' => 'auth', 'uses' => 'AjuanController@showAjuan'));
     Route::post('ajuan/edit/{id}', array('middleware' => 'auth', 'uses' => 'AjuanController@changeStatus'));
     Route::get('ajuan/delete/{id}', array('middleware' => 'auth', 'uses' => 'AjuanController@deleteAjuan'));
+    Route::get('ajuan/tambah-koperasi', array('middleware' => 'auth', 'uses' => 'KoperasiController@showAjuanKoperasi'));
+    Route::post('ajuan/tambah-koperasi', array('middleware' => 'auth', 'uses' => 'KoperasiController@doAjuanKoperasi'));
+    Route::get('ajuan/hapus-koperasi', array('middleware' => 'auth', 'uses' => 'KoperasiController@doAjuanBubar'));
 
     Route::get('koperasi', array('middleware' => 'auth', 'uses' => 'KoperasiController@showAdminKoperasi'));
     Route::post('koperasi/add', array('middleware' => 'auth', 'uses' => 'KoperasiController@addKoperasi'));

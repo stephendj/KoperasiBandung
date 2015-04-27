@@ -25,6 +25,7 @@ class CreateLaporanRequest extends Request {
 			//
 			'id_koperasi'		=> 'required',
 		    'id_pengirim' 		=> 'required',
+		    'tahun'				=> 'required',
 		    'file'				=> 'required|max:2048|mimes:zip,rar'
 		];
 	}

@@ -24,7 +24,7 @@ class LaporanController extends Controller {
 			$join->on('laporans.id_koperasi','=','koperasis.id');
 		})
 		->where ('laporans.terverifikasi','=','0')
-		->select('laporans.id','laporans.id_koperasi', 'koperasis.nama')
+		->select('laporans.*', 'koperasis.nama')
 		->get();
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}
@@ -35,7 +35,7 @@ class LaporanController extends Controller {
 		$r = $request->except('file');
 		$r['file'] = $request->file('file')->getClientOriginalName();
 
-		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file']);
+		Laporan::createLaporan($r['id_koperasi'], $r['id_pengirim'], $r['file'],$r['tahun']);
 
 		return redirect()->back()->with('message', 'Laporan berhasil ditambahkan');
 		

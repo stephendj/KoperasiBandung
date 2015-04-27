@@ -43,6 +43,10 @@
 						    	<span>{!! Form::text('id_pengirim', Input::old('id_pengirim'), array('class' => 'form-control', 'placeholder' => 'cth: 1923298928329')) !!}<br>{!! "<div id=\"alert\">".$errors->first('id_pengirim')."</div>" !!}</span>
 						    </div>
 						    <div>
+						    	<span>Tahun Laporan</span>
+						    	<span>{!! Form::text('tahun', Input::old('tahun'), array('class' => 'form-control', 'placeholder' => 'cth: 2012')) !!}<br>{!! "<div id=\"alert\">".$errors->first('tahun')."</div>" !!}</span>
+						    </div>
+						    <div>
 						     	<span>upload laporan audit</span>
 						    	<span><input type="file" name="file" accept=".zip, .rar">{!! "<div id=\"alert\">".$errors->first('file')."</div>" !!}</span>
 						    </div>

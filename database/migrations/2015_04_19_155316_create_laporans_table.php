@@ -19,6 +19,7 @@ class CreateLaporansTable extends Migration {
 	        $table->string('id_pengirim');
 	        $table->timestamp('tgl_kirim')->default(DB::raw('CURRENT_TIMESTAMP'));
 	        $table->string('file');
+	        $table->unsignedInteger('tahun');
 	        $table->unsignedInteger('permodalan');
 	        $table->unsignedInteger('kualitas_aktiva_produktif');
 	        $table->unsignedInteger('manajemen');
@@ -28,6 +29,7 @@ class CreateLaporansTable extends Migration {
 	        $table->unsignedInteger('jatidiri_koperasi');
 	        $table->unsignedInteger('terverifikasi');
 	    });
+	    
 	    Schema::table('laporans', function($table)
 	    {
 	    	$table->foreign('id_koperasi')

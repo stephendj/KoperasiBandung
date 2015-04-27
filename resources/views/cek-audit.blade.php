@@ -10,7 +10,7 @@
 					<div class="row grids_btm top">
 						<div class="grid_list">
 							<div class="daftar-audit">
-								 <h3>{!! $lap->nama !!}</h3>
+								 <h3>{!! $lap->nama !!} ( {!! $lap->tahun !!} )</h3>
 						</div>
 			 				<button class="tombol-audit cek-audit">
 								Cek Input

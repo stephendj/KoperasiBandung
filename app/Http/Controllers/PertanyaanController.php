@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Mail;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\CreatePertanyaanRequest;
 use App\Pertanyaan;
@@ -35,6 +36,15 @@ class PertanyaanController extends Controller {
         $UpdateDetails->id_staff = \Auth::id();
         $UpdateDetails->jawaban = Input::get('jawaban');
         $UpdateDetails->save();
+
+        $pertanyaan = Pertanyaan::find($id);
+        $email = $pertanyaan->email;
+        $nama = $pertanyaan->nama;
+
+        Mail::send('emails.jawaban', ['pertanyaan' => $pertanyaan], function($message) use($email, $nama) {
+        	$message->from('noreply@koperasibandung.co.id', 'Koperasi Bandung');
+    		$message->to($email, $nama)->subject('Jawaban Anda');
+        });
 
         return redirect()->back()->with('message','Pertanyaan telah dijawab');
     }

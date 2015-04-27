@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Creation a industrial bootstrap Website Template | Blog :: w3layouts</title>
+<title>Koperasi Bandung - Admin</title>
 <!-- Bootstrap -->
 <link href="{!! url('css/bootstrap.min.css') !!}" rel="stylesheet" />
 <link href="{!! url('css/bootstrap.css') !!}" rel="stylesheet" />

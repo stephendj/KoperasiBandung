@@ -58,10 +58,10 @@
 						    	<span>Jenis Koperasi</span>
 						    	<span>
 						    		<select name="jenis_koperasi">
-									  <option value="Biasa">Biasa</option>
+									  <option value="Produksi">Produksi</option>
+									  <option value="Konsumsi">Konsumsi</option>
 									  <option value="Simpan Pinjam">Simpan Pinjam</option>
-									  <option value="Dagang">Dagang</option>
-									  <option value="Lain-Lain">Lain-Lain</option>
+									  <option value="Serba Usaha">Serba Usaha</option>
 									</select>
 						    	</span>
 						    </div>

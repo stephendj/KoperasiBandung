@@ -24,7 +24,7 @@ class CreateAjuanBentukRequest extends Request {
 		return [
 			'id_pengaju' 	=> 'required',
 		    'email'   		=> 'required|email',
-		    'nama_koperasi' => 'required|unique:koperasis,nama',
+		    'nama_koperasi' => 'required|unique:ppl_koperasi_koperasis,nama',
 		    'jenis_koperasi'=> 'required',
 		    'file'			=> 'required|max:2048|mimes:zip,rar'
 		];

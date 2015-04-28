@@ -23,7 +23,7 @@ class CreateKoperasiRequest extends Request {
 	{
 		return [
 			'id_pendiri'		=> 'required',
-		    'nama' 				=> 'required|unique:koperasis,nama',
+		    'nama' 				=> 'required|unique:ppl_koperasi_koperasis,nama',
 		    'jenis_koperasi'	=> 'required',
 		    'alamat'			=> 'required',
 		    'no_telepon' 		=> 'required',

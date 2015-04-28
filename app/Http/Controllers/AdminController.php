@@ -25,7 +25,7 @@ class AdminController extends Controller {
 	    return redirect()->back()->withErrors([
 	        'error' => 'These credentials do not match our records.',
 	    ])->withInput(Input::except('password'));
-
+		return redirect('admin/ajuan');
 	}
 
 	// /**

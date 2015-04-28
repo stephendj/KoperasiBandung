@@ -20,11 +20,11 @@ class LaporanController extends Controller {
 	public function showLaporanAdmin()
 	{
 		$koperasi = Koperasi::showKoperasi(); 
-		$laporan = Laporan::leftJoin('koperasis',function($join){
-			$join->on('laporans.id_koperasi','=','koperasis.id');
+		$laporan = Laporan::leftJoin('ppl_koperasi_koperasis',function($join){
+			$join->on('ppl_koperasi_laporans.id_koperasi','=','ppl_koperasi_koperasis.id');
 		})
-		->where ('laporans.terverifikasi','=','0')
-		->select('laporans.*', 'koperasis.nama')
+		->where ('ppl_koperasi_laporans.terverifikasi','=','0')
+		->select('ppl_koperasi_laporans.*', 'ppl_koperasi_koperasis.nama')
 		->get();
 		return view('cek-audit', compact('koperasi'),compact('laporan'));
 	}

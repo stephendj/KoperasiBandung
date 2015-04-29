@@ -19,7 +19,7 @@
 									<div class="grid_list">
 										<div class="daftar-audit">
 											<h3>Ajuan Pembentukan {{$ajuan->nama_koperasi}}</h3>
-											
+											<p>Dikirim : {{$ajuan->tgl_kirim}}</p>
 										</div>
 										<div class="status-ajuan">
 											@if($ajuan->status === 'Sedang Diproses')
@@ -29,6 +29,7 @@
 											@elseif($ajuan->status === 'Ditolak')
 												<p><font color="red">{!! $ajuan->status !!}</font></p>
 											@endif
+											<p><font size="2">Waktu Perubahan Status {{$ajuan->tgl_ubah_status}}</font></p>
 										</div>
 										<div class="clearfix"></div>	
 									</div>
@@ -45,7 +46,7 @@
 									<div class="grid_list">
 										<div class="daftar-audit">
 											<h3>Ajuan Pembentukan {{$ajuan->nama_koperasi}}</h3>
-											
+											<p>Dikirim : {{$ajuan->tgl_kirim}}</p>
 										</div>
 										<div class="status-ajuan">
 											@if($ajuan->status === 'Sedang Diproses')
@@ -55,6 +56,7 @@
 											@elseif($ajuan->status === 'Ditolak')
 												<p><font color="red">{!! $ajuan->status !!}</font></p>
 											@endif
+											<p><font size="2">Waktu Perubahan Status {{$ajuan->tgl_ubah_status}}</font></p>
 										</div>
 										<div class="clearfix"></div>	
 									</div>
@@ -71,7 +73,7 @@
 									<div class="grid_list">
 										<div class="daftar-audit">
 											<h3>Ajuan Pembubaran {{$ajuan->nama_koperasi}}</h3>
-											
+											<p>Dikirim : {{$ajuan->tgl_kirim}}</p>
 										</div>
 										<div class="status-ajuan">
 											@if($ajuan->status === 'Sedang Diproses')
@@ -81,6 +83,7 @@
 											@elseif($ajuan->status === 'Ditolak')
 												<p><font color="red">{!! $ajuan->status !!}</font></p>
 											@endif
+											<p><font size="2">Waktu Perubahan Status {{$ajuan->tgl_ubah_status}}</font></p>
 										</div>
 										<div class="clearfix"></div>	
 									</div>

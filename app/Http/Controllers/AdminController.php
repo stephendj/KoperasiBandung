@@ -19,7 +19,12 @@ class AdminController extends Controller {
 		
 		if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']]))
 	    {
-	        return redirect('admin/ajuan');
+	    	$role = Admin::find($id)->role;
+	    	if($role !== 'admin') {
+	    		Auth::logout();
+	    	} else {
+	    		return redirect('admin/ajuan');
+	    	}
 	    }
 
 	    return redirect()->back()->withErrors([

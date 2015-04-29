@@ -4,8 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Model {
 
-	protected $table = 'ppl_koperasi_admins';
-	protected $fillable = ['username', 'password'];
+	protected $table = 'ppl_dukcapil_ktp';
 	public $timestamps = false;
 
 }

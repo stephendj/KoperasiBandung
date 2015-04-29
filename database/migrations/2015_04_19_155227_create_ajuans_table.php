@@ -19,7 +19,9 @@ class CreateAjuansTable extends Migration {
 	        $table->string('nama_koperasi');
 	        $table->string('jenis_ajuan');
 	        $table->string('jenis_koperasi');
+	        $table->timestamp('tgl_kirim');
 	        $table->string('status');
+	        $table->timestamp('tgl_ubah_status');
 	        $table->string('id_pengaju');
 	        $table->string('email');
 	        $table->string('file');

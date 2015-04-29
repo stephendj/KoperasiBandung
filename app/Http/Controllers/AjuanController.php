@@ -69,16 +69,16 @@ class AjuanController extends Controller {
         $status = $ajuan->status;
 
 		// Mengirim email untuk konfirmasi
-		if($ajuan !== 'Sedang Diproses') {
-	        Mail::send('emails.statusajuan', ['ajuan' => $ajuan], function($message) use($email, $nama, $status) {
-	        	$message->from('noreply@koperasibandung.co.id', 'Koperasi Bandung');
-	        	if($status === 'Diterima') {
-	        		$message->to($email, $nama)->subject('Ajuan Anda Diterima');
-	        	} else {
-	        		$message->to($email, $nama)->subject('Ajuan Anda Ditolak');
-	        	}
-	        });
-	    }
+		// if($ajuan !== 'Sedang Diproses') {
+	 //        Mail::send('emails.statusajuan', ['ajuan' => $ajuan], function($message) use($email, $nama, $status) {
+	 //        	$message->from('noreply@koperasibandung.co.id', 'Koperasi Bandung');
+	 //        	if($status === 'Diterima') {
+	 //        		$message->to($email, $nama)->subject('Ajuan Anda Diterima');
+	 //        	} else {
+	 //        		$message->to($email, $nama)->subject('Ajuan Anda Ditolak');
+	 //        	}
+	 //        });
+	 //    }
 
 		if($ajuanpembentukan && Input::get('action') == 'Terima Ajuan') {
 			$id_pengaju = Input::get('id_pengaju');

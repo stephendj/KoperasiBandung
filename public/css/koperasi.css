@@ -334,7 +334,7 @@ h5.paneltabajuan{
 }
 
 .status-ajuan{
-	width:250px;
+	width:400px;
 	margin-top:5px;
 	margin-left: 3%;
 	font-family: 'Open Sans', 'sans-serif';
@@ -343,7 +343,7 @@ h5.paneltabajuan{
 	border: none;
 	outline: none;
 	display: inline-block;
-	padding: 12px 30px;
+	padding: 0px 30px;
 	font-size: 1.7em;
 	color: #000000;
 	background: #ffffff;

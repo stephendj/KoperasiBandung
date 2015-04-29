@@ -4,10 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ajuan extends Model {
 
+	const CREATED_AT = 'tgl_kirim';
+    const UPDATED_AT = 'tgl_ubah_status';
+
 	protected $table = 'ppl_koperasi_ajuans';
 	protected $fillable = ['nama_koperasi', 'jenis_koperasi', 'id_pengaju', 'email', 'file'];
-	public $timestamps = false;
-
+	
 	public function scopeBentuk($query)
     {
         return $query->where('jenis_ajuan', 'Pembentukan');

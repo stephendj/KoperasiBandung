@@ -19,7 +19,7 @@
 									</div> 	   
 				 			</div>
 				 			<div class="images_1_of_1">
-								<p>{!! $kop->penilaian !!}</p>
+								<center><font size="5" color="white">Skor:</font></center><p>{!! $kop->penilaian !!}</p>
 							</div>
 				 			 <div class="clearfix"></div>
 						</div>

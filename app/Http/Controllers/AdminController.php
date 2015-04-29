@@ -19,7 +19,7 @@ class AdminController extends Controller {
 		
 		if (Auth::attempt(['username' => $request['username'], 'password' => $request['password']]))
 	    {
-	    	$role = Admin::find($id)->role;
+	    	$role = Admin::find(Auth::id())->role;
 	    	if($role !== 'admin') {
 	    		Auth::logout();
 	    	} else {

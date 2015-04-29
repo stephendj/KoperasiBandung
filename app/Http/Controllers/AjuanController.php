@@ -116,7 +116,8 @@ class AjuanController extends Controller {
 	        	->with('message','Ajuan berhasil dikirimkan');
         } else {
         	return redirect()->back()
-	        	->with('messagefail','The input ID is not valid');
+	        	->with('messagefail','The input ID is not valid')
+	        	->withInput(Input::except('id_pengaju'));
         } 
 	}
 
@@ -142,7 +143,8 @@ class AjuanController extends Controller {
 	        	->with('message','Ajuan berhasil dikirimkan');
         } else {
      		return redirect()->back()
-	        	->with('messagefail','The input ID is not valid');
+	        	->with('messagefail','The input ID is not valid')
+	        	->withInput(Input::except('id_pengaju'));
         }
 	}
 

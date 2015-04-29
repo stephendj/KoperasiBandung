@@ -42,7 +42,7 @@
 	    					</div>
 				        @endif
 				        @if(!is_null(Session::get('messagefail')))
-				        	<div class="alert alert-error">
+				        	<div class="alert alert-danger">
 								<a href="#" class="close" data-dismiss="alert">&times;</a>
 								<strong>Error!</strong> {!! Session::get('messagefail') !!}
 							</div>

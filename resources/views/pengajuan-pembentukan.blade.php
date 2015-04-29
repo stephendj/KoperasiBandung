@@ -41,6 +41,12 @@
 	        					<strong>Sukses!</strong> {!! Session::get('message') !!}
 	    					</div>
 				        @endif
+				        @if(!is_null(Session::get('messagefail')))
+				        	<div class="alert alert-error">
+								<a href="#" class="close" data-dismiss="alert">&times;</a>
+								<strong>Error!</strong> {!! Session::get('messagefail') !!}
+							</div>
+						@endif
 					    {!! Form::open(array('url'=>'ajuanbentuk', 'method'=>'POST', 'files'=>true)) !!}
 					    	<div>
 						    	<span>Nomor Kartu Tanda Penduduk</span>

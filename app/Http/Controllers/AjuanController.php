@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Ajuan;
 use App\Koperasi;
+use App\Admin;
 use App\Http\Requests\CreateAjuanBentukRequest;
 use App\Http\Requests\CreateAjuanBubarRequest;
 
@@ -69,16 +70,16 @@ class AjuanController extends Controller {
         $status = $ajuan->status;
 
 		// Mengirim email untuk konfirmasi
-		// if($ajuan !== 'Sedang Diproses') {
-	 //        Mail::send('emails.statusajuan', ['ajuan' => $ajuan], function($message) use($email, $nama, $status) {
-	 //        	$message->from('noreply@koperasibandung.co.id', 'Koperasi Bandung');
-	 //        	if($status === 'Diterima') {
-	 //        		$message->to($email, $nama)->subject('Ajuan Anda Diterima');
-	 //        	} else {
-	 //        		$message->to($email, $nama)->subject('Ajuan Anda Ditolak');
-	 //        	}
-	 //        });
-	 //    }
+		if($ajuan !== 'Sedang Diproses') {
+	        Mail::send('emails.statusajuan', ['ajuan' => $ajuan], function($message) use($email, $nama, $status) {
+	        	$message->from('noreply@koperasibandung.co.id', 'Koperasi Bandung');
+	        	if($status === 'Diterima') {
+	        		$message->to($email, $nama)->subject('Ajuan Anda Diterima');
+	        	} else {
+	        		$message->to($email, $nama)->subject('Ajuan Anda Ditolak');
+	        	}
+	        });
+	    }
 
 		if($ajuanpembentukan && Input::get('action') == 'Terima Ajuan') {
 			$id_pengaju = Input::get('id_pengaju');
@@ -99,19 +100,24 @@ class AjuanController extends Controller {
 		$request->file('file')->move(public_path('upload/ajuan'), $request->file('file')->getClientOriginalName());
 		$r = $request->except('file');
 		$r['file'] = $request->file('file')->getClientOriginalName();
-		$ajuan = new Ajuan;
+		$pengguna = Admin::where('nik', $r['id_pengaju'])->first();
+		if(!is_null($pengguna)) {
+			$ajuan = new Ajuan;
 
-		$ajuan->fill($r);
-		$ajuan->id 			= NULL;
-		$ajuan->id_staff 	= NULL;
-		$ajuan->jenis_ajuan = 'Pembentukan';
-		$ajuan->status 		= 'Sedang Diproses';
+			$ajuan->fill($r);
+			$ajuan->id 			= NULL;
+			$ajuan->id_staff 	= NULL;
+			$ajuan->jenis_ajuan = 'Pembentukan';
+			$ajuan->status 		= 'Sedang Diproses';
 
-		$ajuan->save();		
-        
-        return redirect()->back()
-        	->with('message','Ajuan berhasil dikirimkan');
-		
+			$ajuan->save();		
+	        
+	        return redirect()->back()
+	        	->with('message','Ajuan berhasil dikirimkan');
+        } else {
+        	return redirect()->back()
+	        	->with('messagefail','The input ID is not valid');
+        } 
 	}
 
 	public function addAjuanBubar(CreateAjuanBubarRequest $request) {
@@ -119,19 +125,25 @@ class AjuanController extends Controller {
 		$request->file('file')->move(public_path('upload/ajuan'), $request->file('file')->getClientOriginalName());
 		$r = $request->except('file');
 		$r['file'] = $request->file('file')->getClientOriginalName();
-		$ajuan = new Ajuan;
+		$pengguna = Admin::where('nik', $r['id_pengaju'])->first();
+		if(!is_null($pengguna)) {
+			$ajuan = new Ajuan;
 
-		$ajuan->fill($r);
-		$ajuan->id 				= NULL;
-		$ajuan->id_staff		= NULL;
-		$ajuan->jenis_ajuan 	= 'Pembubaran';
-		$ajuan->jenis_koperasi	= Koperasi::getJenisByNama(Input::get('nama_koperasi'));
-		$ajuan->status 			= 'Sedang Diproses';
+			$ajuan->fill($r);
+			$ajuan->id 				= NULL;
+			$ajuan->id_staff		= NULL;
+			$ajuan->jenis_ajuan 	= 'Pembubaran';
+			$ajuan->jenis_koperasi	= Koperasi::getJenisByNama(Input::get('nama_koperasi'));
+			$ajuan->status 			= 'Sedang Diproses';
 
-		$ajuan->save();		
-        
-        return redirect()->back()
-        	->with('message','Ajuan berhasil dikirimkan');
+			$ajuan->save();		
+	        
+	        return redirect()->back()
+	        	->with('message','Ajuan berhasil dikirimkan');
+        } else {
+     		return redirect()->back()
+	        	->with('messagefail','The input ID is not valid');
+        }
 	}
 
 	public function deleteAjuan($id) {
